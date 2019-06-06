@@ -1,0 +1,42 @@
+.mask {
+  -fx-background-color: rgba(51, 12, 47, 0.88);
+}
+
+.root {
+  -fx-focus-color: transparent;
+  -fx-min-width: 600px;
+  -fx-min-height: 400px;
+}
+
+.body {
+  -fx-background-image: url(../../resources/background.jpg);
+  -fx-background-size: cover;
+  -fx-background-position: center center;
+}
+
+.logo {
+  -fx-margin: 54px;
+}
+
+.field {
+  -fx-border-radius: 4px;
+  -fx-background-radius: 4px;
+  -fx-background-color: #bbb;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.2), 8px, 0.2, 1px, 2px);
+  -fx-font-size: 20;
+}
+
+.field:focus {
+  -fx-highlight-fill: transparent;
+}
+
+.button {
+  -fx-background-color: #8b4384;
+  -fx-border-radius: 8px;
+  -fx-background-radius: 8px;
+  -fx-padding: 10px;
+  -fx-font: "Khand Regular";
+}
+
+.footer {
+}
