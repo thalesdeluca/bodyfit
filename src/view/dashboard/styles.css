@@ -12,11 +12,9 @@
 
 .button {
   -fx-background-color: #330c2f;
-  -fx-margin: 10px;
   -fx-border-radius: 8px;
   -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
-  -fx-padding: 12px 18px;
-  -fx-cursor: pointer;
+  -fx-cursor: hand;
 }
 
 .button:hover {
