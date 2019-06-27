@@ -48,14 +48,6 @@
     -fx-fit-to-width: true;
 }
 
-.bodybuilderList {
-
-  -fx-fit-to-width: true;
-}
-
-.bodybuilder {
-  -fx-margin: 20px 0px 0px 0px;
-}
 .bodybuilderStatus {
   -fx-background-color: #76C179;
   -fx-background-radius: 3 0 0 3;
@@ -65,4 +57,5 @@
 
 .bodybuilderData {
   -fx-background-color: #9B5E95;  -fx-background-radius: 0 3 3 0;
+  -fx-pref-height: 100px;
 }

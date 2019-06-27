@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,7 +40,10 @@
                   <TextField promptText="Pesquisar Aluno" styleClass="searchInput" stylesheets="@styles.css">
                      <HBox.margin>
                         <Insets left="15.0" />
-                     </HBox.margin></TextField>
+                     </HBox.margin>
+                     <font>
+                        <Font name="Raleway" size="13.0" />
+                     </font></TextField>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" scaleX="0.7" scaleY="0.5" styleClass="searchIcon" stylesheets="@styles.css">
                      <children>
                         <SVGPath content="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" fill="#bfbfbfaf" scaleX="0.9" scaleY="0.9" />
@@ -55,7 +59,7 @@
             </HBox>
             <Button mnemonicParsing="false" styleClass="searchButton" stylesheets="@styles.css" text="Buscar" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Pomodoro" size="22.0" />
+                  <Font name="Raleway" size="22.0" />
                </font>
                <HBox.margin>
                   <Insets left="10.0" />
@@ -65,14 +69,36 @@
       </HBox>
       <ScrollPane hbarPolicy="NEVER" layoutY="100.0" styleClass="scrollList" stylesheets="@styles.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <content>
-            <VBox alignment="TOP_CENTER" styleClass="bodybuilderList">
+            <VBox alignment="TOP_CENTER">
                <children>
                   <VBox alignment="CENTER" maxWidth="700.0" styleClass="bodybuilderList">
                      <children>
                         <HBox fillHeight="false" styleClass="bodybuilder" stylesheets="@styles.css" VBox.vgrow="ALWAYS">
                            <children>
                               <Pane prefHeight="200.0" prefWidth="200.0" styleClass="bodybuilderStatus" />
-                              <HBox />
+                              <HBox styleClass="bodybuilderData" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Joselito Carmona Ramones" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                             <font>
+                                                <Font name="Raleway" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="094.073.209-28" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
+                                             <font>
+                                                <Font name="Raleway" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="24/06/1558" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+                                             <font>
+                                                <Font name="Raleway" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
