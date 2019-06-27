@@ -80,7 +80,7 @@
       </VBox>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll" stylesheets="@styles.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
          <content>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container" stylesheets="@styles.css" />
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0" styleClass="container" stylesheets="@styles.css" />
          </content>
       </ScrollPane>
    </children>
