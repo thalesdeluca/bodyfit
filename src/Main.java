@@ -9,7 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("./view/login/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("./view/dashboard/dashboard_instructor.fxml"));
         Font.loadFont(getClass().getResourceAsStream("./resources/fonts/Khand-Regular.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("./resources/fonts/Khand-Bold.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("./resources/fonts/Khand-Light.ttf"), 14);
@@ -17,7 +17,15 @@ public class Main extends Application {
         Font.loadFont(getClass().getResourceAsStream("./resources/fonts/Raleway-Regular.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("./resources/fonts/Raleway-Thin.ttf"), 14);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 768, 450
+
+
+
+
+
+        ,,,,,,,,));
+        primaryStage.setMinHeight(720);
+        primaryStage.setMinWidth(450);
         primaryStage.setResizable(true);
         primaryStage.show();
     }
