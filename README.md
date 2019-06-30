@@ -1,11 +1,13 @@
-##Installation
+## Installation
+
 Run in your terminal
 
 ```
 $ mvn clean install
 ```
 
-##Running
+## Running
+
 To run the project, go to the project's root:
 
 ```
