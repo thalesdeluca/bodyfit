@@ -1,6 +1,6 @@
-/home/chillted/Documents/maven bodyfit/boodyfit/src/main/java/com/bodyfit/Main.java
-/home/chillted/Documents/maven bodyfit/boodyfit/src/main/java/com/bodyfit/service/TestService.java
-/home/chillted/Documents/maven bodyfit/boodyfit/src/main/java/com/bodyfit/controller/login/LoginController.java
-/home/chillted/Documents/maven bodyfit/boodyfit/src/main/java/com/bodyfit/dao/LoginDAO.java
-/home/chillted/Documents/maven bodyfit/boodyfit/src/main/java/com/bodyfit/controller/TestController.java
-/home/chillted/Documents/maven bodyfit/boodyfit/src/main/java/com/bodyfit/model/Test.java
+/home/chillted/Documents/BodyFit/src/main/java/com/bodyfit/Main.java
+/home/chillted/Documents/BodyFit/src/main/java/com/bodyfit/controller/TestController.java
+/home/chillted/Documents/BodyFit/src/main/java/com/bodyfit/model/Test.java
+/home/chillted/Documents/BodyFit/src/main/java/com/bodyfit/service/TestService.java
+/home/chillted/Documents/BodyFit/src/main/java/com/bodyfit/dao/LoginDAO.java
+/home/chillted/Documents/BodyFit/src/main/java/com/bodyfit/controller/login/LoginController.java
