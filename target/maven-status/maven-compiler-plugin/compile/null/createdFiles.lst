@@ -1,0 +1,6 @@
+com/bodyfit/dao/LoginDAO.class
+com/bodyfit/Main.class
+com/bodyfit/controller/TestController.class
+com/bodyfit/service/TestService.class
+com/bodyfit/controller/login/LoginController.class
+com/bodyfit/model/Test.class
