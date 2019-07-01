@@ -1,28 +1,24 @@
-package com.bodyfit.controller.bodybuillder;
+package com.bodyfit.controller.instructor;
 
 import com.bodyfit.controller.dashboard.DashboardController;
 import com.bodyfit.dao.BodyBuilderListDAO;
-import com.bodyfit.dto.BodyBuilderDTO;
+import com.bodyfit.dao.InstructorListDAO;
 import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Instructor;
-import com.sun.javafx.fxml.FXMLLoaderHelper;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
-import netscape.javascript.JSObject;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class BodybuilderListController {
+public class InstructorListController {
 
     private Instructor user;
 
@@ -37,10 +33,10 @@ public class BodybuilderListController {
     @FXML
     private HBox bodybuilderListItem;
 
-    public BodybuilderListController() { bodyBuilderListDAO = new BodyBuilderListDAO();}
+    public InstructorListController() { InstructorListDAO = new InstructorListDAO();}
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/bodybuilderList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/instruList.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");

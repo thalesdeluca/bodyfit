@@ -5,6 +5,9 @@ com/bodyfit/controller/dashboard/DashboardController$1.class
 com/bodyfit/controller/dashboard/DashboardController.class
 com/bodyfit/controller/dashboard/DashboardController$4.class
 com/bodyfit/Main.class
+com/bodyfit/model/Bodybuilder.class
+com/bodyfit/controller/bodybuillder/BodybuilderListController$1.class
+com/bodyfit/dto/BodyBuilderDTO.class
 com/bodyfit/controller/dashboard/DashboardController$2.class
 com/bodyfit/controller/instructor/InstructorList.class
 com/bodyfit/controller/dashboard/DashboardController$3.class
@@ -12,4 +15,5 @@ com/bodyfit/controller/TestController.class
 com/bodyfit/controller/login/LoginController.class
 com/bodyfit/model/Instructor.class
 com/bodyfit/model/Test.class
+com/bodyfit/dao/BodyBuilderListDAO.class
 com/bodyfit/dto/LoginDto.class
