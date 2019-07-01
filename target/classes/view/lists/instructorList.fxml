@@ -15,7 +15,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" styleClass="headerBar" stylesheets="@styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <VBox id="backButton" alignment="CENTER" styleClass="backButton" stylesheets="@styles.css">
+            <VBox fx:id="backButton" alignment="CENTER" styleClass="backButton" stylesheets="@styles.css">
                <children>
                   <SVGPath content="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111  C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587  c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z" fill="WHITE" rotate="180.0" smooth="false">
                      <VBox.margin>
@@ -47,7 +47,7 @@
                         <SVGPath content="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" fill="#bfbfbfaf" scaleX="0.9" scaleY="0.9" />
                      </children>
                      <HBox.margin>
-                        <Insets left="-10.0" right="10.0" />
+                        <Insets left="-15.0" right="10.0" />
                      </HBox.margin>
                      <padding>
                         <Insets right="10.0" />

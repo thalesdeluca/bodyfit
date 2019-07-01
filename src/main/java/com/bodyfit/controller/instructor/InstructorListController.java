@@ -1,34 +1,26 @@
-package com.bodyfit.controller.bodybuillder;
+package com.bodyfit.controller.instructor;
 
 import com.bodyfit.controller.dashboard.DashboardController;
-import com.bodyfit.controller.signup.SignupBodybuilderController;
-import com.bodyfit.dao.BodybuilderDAO;
-import com.bodyfit.model.Bodybuilder;
+import com.bodyfit.dao.InstructorListDAO;
 import com.bodyfit.model.Instructor;
-import javafx.scene.control.Button;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import java.io.IOException;
-
-public class BodybuilderListController {
-
-    private Stage stage;
+public class InstructorListController {
 
     private Instructor user;
 
-    private BodybuilderDAO bodybuilderDAO;
+    private InstructorListDAO instructorListDAO;
 
     @FXML
     private VBox backButton;
@@ -39,15 +31,10 @@ public class BodybuilderListController {
     @FXML
     private HBox bodybuilderListItem;
 
-    @FXML
-    private Button addBodybuilderButton;
-
-    public BodybuilderListController() {
-        bodybuilderDAO = new BodybuilderDAO();
-    }
+    public InstructorListController() { instructorListDAO = new InstructorListDAO();}
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/bodybuilderList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/instructorList.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");
@@ -58,10 +45,10 @@ public class BodybuilderListController {
         stage.show();
 
         this.user = instructor;
-        this.stage = stage;
 
         try {
-            ArrayList<Bodybuilder> bodybuilder = bodybuilderDAO.getAll();
+            ArrayList<Instructor> instructors = instructorListDAO.getAll();
+            System.out.println(instructors);
         } catch (Exception ex) {
             System.out.println("Erro no getAll:" + ex);
         }
@@ -78,15 +65,5 @@ public class BodybuilderListController {
             }
         });
 
-    }
-
-    @FXML
-    public void addNewBodybuilderButton(ActionEvent event) throws IOException {
-        try {
-            SignupBodybuilderController signupBodybuilderController = new SignupBodybuilderController();
-            signupBodybuilderController.start(stage, user);
-        } catch (Exception ex) {
-            System.out.println("Erro ao entrar no cadastro de bodybuilder " + ex);
-        }
     }
 }

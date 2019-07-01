@@ -1,6 +1,7 @@
 package com.bodyfit.controller.dashboard;
 
 import com.bodyfit.controller.bodybuillder.BodybuilderListController;
+import com.bodyfit.controller.instructor.InstructorListController;
 import com.bodyfit.controller.evaluation.EvaluationController;
 import com.bodyfit.dao.EvaluationDAO;
 import com.bodyfit.model.Instructor;
@@ -62,6 +63,12 @@ public class DashboardController {
         instructorBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                try {
+                    InstructorListController instructorListController = new InstructorListController();
+                    instructorListController.start(stage, instructor);
+                } catch (Exception exception) {
+                    System.out.println("Erro ao trocar de tela");
+                }
                 System.out.println(mouseEvent.getSource().getClass().getName());
 
             }
