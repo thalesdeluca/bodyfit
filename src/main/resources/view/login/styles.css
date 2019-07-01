@@ -64,5 +64,9 @@
   -fx-background-color: #741d6b;
 }
 
+.button:disabled, .field:disabled {
+    -fx-opacity: 0.2;
+}
+
 .footer {
 }
