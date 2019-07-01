@@ -26,7 +26,9 @@ public class LoginController{
     }
 
     public void start (Stage stage) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/login/login.fxml"));
+        loader.setController(this);
+        Parent root = loader.load();
         stage.setTitle("BodyFit");
         stage.setScene(new Scene(root, 768, 450));
         stage.setMinHeight(720);
@@ -53,8 +55,7 @@ public class LoginController{
             DashboardController dashboardController = new DashboardController();
             Node source = (Node) event.getSource();
             Window stage = source.getScene().getWindow();
-            dashboardController.start((Stage)stage);
-
+            dashboardController.start((Stage)stage, instructor);
         }
 
         login.setDisable(false);
