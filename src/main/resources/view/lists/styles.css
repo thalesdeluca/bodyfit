@@ -21,7 +21,6 @@
 }
 
 .searchInput {
-  -fx-min-width: 700px;
   -fx-min-height: 50px;
   -fx-margin-left: 200px;
   -fx-background-color: #F8F8F8;
