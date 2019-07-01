@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class BodyBuilderListDAO {
+public class BodybuilderDAO {
 
     public ArrayList<Bodybuilder> getAll() {
         HttpClient client = HttpClientBuilder.create().build();
@@ -70,6 +70,43 @@ public class BodyBuilderListDAO {
                 arrayBodybuilder.add(desgracado);
             }
             return arrayBodybuilder;
+        }
+    }
+
+
+    public String register(String name, String cpf, String birthday, String tel, Boolean status, String last_paid, Double value) {
+        JsonObject json = new JsonObject();
+        json.addProperty("name", name);
+        json.addProperty("cpf", cpf);
+        json.addProperty("birth_date", birthday);
+        json.addProperty("phone", tel);
+        json.addProperty("status", status);
+        json.addProperty("last_paid", last_paid);
+        json.addProperty("value", value);
+
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = Request.post("https://app-bodyfit.herokuapp.com/bodybuilder/register", json);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        if(httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+            try {
+                String res = EntityUtils.toString(httpResponse.getEntity());
+                System.out.println("nao foi gravado" + res);
+            } catch (Exception ex) {
+                System.out.println("Erro na conversão para Json");
+            }
+            return null;
+
+        } else {
+            try {
+                String res = EntityUtils.toString(httpResponse.getEntity());
+                System.out.println("foi gravado" + res);
+            } catch (Exception ex) {
+                System.out.println("Erro na conversão para Json");
+            }
+            return "";
         }
     }
 }

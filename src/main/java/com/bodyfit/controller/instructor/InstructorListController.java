@@ -1,9 +1,7 @@
 package com.bodyfit.controller.instructor;
 
 import com.bodyfit.controller.dashboard.DashboardController;
-import com.bodyfit.dao.BodyBuilderListDAO;
 import com.bodyfit.dao.InstructorListDAO;
-import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Instructor;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -22,7 +20,7 @@ public class InstructorListController {
 
     private Instructor user;
 
-    private BodyBuilderListDAO bodyBuilderListDAO;
+    private InstructorListDAO instructorListDAO;
 
     @FXML
     private VBox backButton;
@@ -33,10 +31,10 @@ public class InstructorListController {
     @FXML
     private HBox bodybuilderListItem;
 
-    public InstructorListController() { InstructorListDAO = new InstructorListDAO();}
+    public InstructorListController() { instructorListDAO = new InstructorListDAO();}
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/instruList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/instructorList.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");
@@ -49,7 +47,8 @@ public class InstructorListController {
         this.user = instructor;
 
         try {
-            ArrayList<Bodybuilder> bodybuilder = bodyBuilderListDAO.getAll();
+            ArrayList<Instructor> instructors = instructorListDAO.getAll();
+            System.out.println(instructors);
         } catch (Exception ex) {
             System.out.println("Erro no getAll:" + ex);
         }
