@@ -51,7 +51,7 @@ public class BodybuilderListController {
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");
-        stage.setScene(new Scene(root, 768, 450));
+        stage.setScene(new Scene(root));
         stage.setMinHeight(720);
         stage.setMinWidth(450);
         stage.setResizable(true);
