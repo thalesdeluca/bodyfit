@@ -16,8 +16,7 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 
-
-public class LoginController{
+public class LoginController {
 
     private LoginDAO loginDAO;
 
@@ -25,7 +24,7 @@ public class LoginController{
         loginDAO = new LoginDAO();
     }
 
-    public void start (Stage stage) throws IOException{
+    public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/login/login.fxml"));
         loader.setController(this);
         Parent root = loader.load();
@@ -44,24 +43,23 @@ public class LoginController{
     private Button enter;
 
     @FXML
-    public void onClick(ActionEvent event) throws IOException{
+    public void onClick(ActionEvent event) throws IOException {
         String id = login.getText();
         login.setDisable(true);
         enter.setDisable(true);
 
         Instructor instructor = loginDAO.login(id);
 
-        if(instructor != null) {
+        if (instructor != null) {
             DashboardController dashboardController = new DashboardController();
             Node source = (Node) event.getSource();
             Window stage = source.getScene().getWindow();
-            dashboardController.start((Stage)stage, instructor);
+            dashboardController.start((Stage) stage, instructor);
         }
 
         login.setDisable(false);
         enter.setDisable(false);
 
     }
-
 
 }

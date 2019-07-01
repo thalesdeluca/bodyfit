@@ -5,20 +5,22 @@ import com.bodyfit.controller.signup.SignupBodybuilderController;
 import com.bodyfit.dao.BodybuilderDAO;
 import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Instructor;
+import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import java.io.IOException;
 
 public class BodybuilderListController {
 
@@ -40,7 +42,9 @@ public class BodybuilderListController {
     @FXML
     private Button addBodybuilderButton;
 
-    public BodybuilderListController() { bodybuilderDAO = new BodybuilderDAO();}
+    public BodybuilderListController() {
+        bodybuilderDAO = new BodybuilderDAO();
+    }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/bodybuilderList.fxml"));
@@ -75,6 +79,7 @@ public class BodybuilderListController {
         });
 
     }
+
     @FXML
     public void addNewBodybuilderButton(ActionEvent event) throws IOException {
         try {

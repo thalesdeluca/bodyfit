@@ -1,6 +1,5 @@
 package com.bodyfit.dao;
 
-
 import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Instructor;
 import com.google.gson.FieldNamingPolicy;

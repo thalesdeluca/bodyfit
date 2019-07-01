@@ -1,8 +1,11 @@
 package com.bodyfit.dao;
 
+import com.bodyfit.dto.EvaluationDTO;
 import com.bodyfit.dto.LoginDto;
 import com.bodyfit.helper.Request;
+import com.bodyfit.model.Evaluation;
 import com.bodyfit.model.Instructor;
+import com.cedarsoftware.util.ArrayUtilities;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -10,24 +13,26 @@ import com.google.gson.JsonObject;
 import javafx.scene.control.Alert;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.util.ArrayList;
 
-public class LoginDAO {
-
-    public Instructor login (String id) {
+public class EvaluationDAO {
+    public ArrayList getEvaluations() {
         JsonObject json = new JsonObject();
-        json.addProperty("code", id);
         HttpResponse httpResponse = null;
         try {
-            httpResponse = Request.post("https://app-bodyfit.herokuapp.com/instructor/login", json);
+            httpResponse = Request.get("https://app-bodyfit.herokuapp.com/evaluation/getAll");
         } catch (Exception err) {
             System.out.println("Erro");
         }
 
+        System.out.println(httpResponse);
+
         if (httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Erro ao logar");
+            alert.setTitle("Erro ao consultar avaliaçoes");
             alert.setHeaderText("Ocorreu um erro ao tentar logar!");
             alert.setContentText("Verifique o código e tente novamente!");
             alert.showAndWait();
@@ -43,9 +48,24 @@ public class LoginDAO {
                 System.out.println("Erro na conversão de json");
             }
 
-            LoginDto loginDto = gson.fromJson(res, LoginDto.class);
-            System.out.println(loginDto);
-            return loginDto.getInstructor();
+            JSONObject jsonObject = new JSONObject(res);
+
+            JSONArray jsonArray = jsonObject.getJSONArray("evaluations");
+
+            ArrayList<Evaluation> evaluations = new ArrayList<>();
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject o = jsonArray.getJSONObject(i);
+                Integer id = o.getInt("id");
+                String date_time = o.getString("date_time");
+                Integer id_bodybuilder = o.getInt("id_bodybuilder");
+                String name = o.getString("name");
+
+                Evaluation e = new Evaluation(id, date_time, id_bodybuilder, name);
+                evaluations.add(e);
+            }
+
+            return evaluations;
         }
     }
 }

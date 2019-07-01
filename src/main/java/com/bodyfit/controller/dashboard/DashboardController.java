@@ -2,6 +2,8 @@ package com.bodyfit.controller.dashboard;
 
 import com.bodyfit.controller.bodybuillder.BodybuilderListController;
 import com.bodyfit.controller.instructor.InstructorListController;
+import com.bodyfit.controller.evaluation.EvaluationController;
+import com.bodyfit.dao.EvaluationDAO;
 import com.bodyfit.model.Instructor;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +19,7 @@ import javafx.stage.Window;
 import java.io.IOException;
 
 public class DashboardController {
+
     private Instructor user;
 
     @FXML
@@ -31,10 +34,9 @@ public class DashboardController {
     @FXML
     private VBox evaluationBtn;
 
-
-
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/dashboard/dashboard_instructor.fxml"));
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getClassLoader().getResource("view/dashboard/dashboard_instructor.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");
@@ -67,6 +69,8 @@ public class DashboardController {
                 } catch (Exception exception) {
                     System.out.println("Erro ao trocar de tela");
                 }
+                System.out.println(mouseEvent.getSource().getClass().getName());
+
             }
         });
 
@@ -81,11 +85,14 @@ public class DashboardController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 System.out.println(mouseEvent.getSource().getClass().getName());
+                try {
+                    EvaluationController evaluationController = new EvaluationController();
+                    evaluationController.start(stage);
+                } catch (Exception exception) {
+                    System.out.println("Erro ao trocar de tela " + exception);
+                }
             }
         });
     }
 
-
 }
-
-
