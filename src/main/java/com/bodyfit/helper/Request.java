@@ -17,11 +17,21 @@ import java.util.ArrayList;
 public class Request {
     private static HttpClient httpClient;
 
+    public static HttpResponse get(String url) throws Exception {
+        httpClient = HttpClients.createDefault();
+
+        URIBuilder builder = new URIBuilder(url);
+
+        HttpGet request = new HttpGet(builder.build());
+        return httpClient.execute(request);
+
+    }
+
     public static HttpResponse get(String url, ArrayList<NameValuePair> params) throws Exception {
         httpClient = HttpClients.createDefault();
 
         URIBuilder builder = new URIBuilder(url);
-        for(NameValuePair attr : params) {
+        for (NameValuePair attr : params) {
             builder.addParameter(attr.getName(), attr.getValue());
         }
 
@@ -29,11 +39,12 @@ public class Request {
         return httpClient.execute(request);
 
     }
+
     public static HttpResponse get(URI url, ArrayList<NameValuePair> params) throws Exception {
         httpClient = HttpClients.createDefault();
 
         URIBuilder builder = new URIBuilder(url);
-        for(NameValuePair attr : params) {
+        for (NameValuePair attr : params) {
             builder.addParameter(attr.getName(), attr.getValue());
         }
 
