@@ -16,6 +16,7 @@
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dto/BodyBuilderDTO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/model/Instructor.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/login/LoginController.java
+/home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/model/Charge.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dao/LoginDAO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/model/Evaluation.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/model/Test.java
