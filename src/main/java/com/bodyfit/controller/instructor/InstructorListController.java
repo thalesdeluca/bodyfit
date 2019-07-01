@@ -26,10 +26,7 @@ public class InstructorListController {
     private VBox backButton;
 
     @FXML
-    private VBox bodybuilderList;
-
-    @FXML
-    private HBox bodybuilderListItem;
+    private VBox instructorList;
 
     public InstructorListController() {
         instructorListDAO = new InstructorListDAO();
@@ -48,11 +45,11 @@ public class InstructorListController {
 
         this.user = instructor;
 
-        try {
-            ArrayList<Instructor> instructors = instructorListDAO.getAll();
-            System.out.println(instructors);
-        } catch (Exception ex) {
-            System.out.println("Erro no getAll:" + ex);
+        ArrayList<Instructor> instructors = instructorListDAO.getAll();
+
+        for (int i = 0; i < instructors.size(); i++) {
+            InstructorListItemController bodybuilderListItemController = new InstructorListItemController(
+                    instructorList, instructors.get(i));
         }
 
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {

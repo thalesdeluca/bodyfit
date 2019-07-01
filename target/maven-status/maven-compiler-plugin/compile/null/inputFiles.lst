@@ -4,11 +4,11 @@
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dto/LoginDto.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/instructor/InstructorListController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/TestController.java
-/home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/instructor/InstructorList.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dto/EvaluationDTO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dao/BodybuilderDAO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/bodybuilder/BodybuilderListItemController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/dashboard/DashboardController.java
+/home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/instructor/InstructorListItemController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dao/InstructorListDAO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/Main.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/signup/SignupBodybuilderController.java

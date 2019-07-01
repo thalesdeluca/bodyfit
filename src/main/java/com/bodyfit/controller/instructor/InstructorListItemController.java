@@ -1,0 +1,42 @@
+package com.bodyfit.controller.instructor;
+
+import com.bodyfit.model.Instructor;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import java.io.IOException;
+
+public class InstructorListItemController {
+  @FXML
+  private Label name;
+
+  @FXML
+  private Label cpf;
+
+  @FXML
+  private Label birth_date;
+
+  public InstructorListItemController(VBox parent, Instructor instructor) {
+    try {
+      FXMLLoader loader = new FXMLLoader(
+          getClass().getClassLoader().getResource("view/components/list-item/list-item.fxml"));
+      loader.setController(this);
+      Parent root = loader.load();
+
+      name.setText(instructor.getName());
+      cpf.setText(instructor.getCpf());
+      birth_date.setText(instructor.getBirthDate());
+
+      parent.getChildren().add(root);
+    } catch (Exception exception) {
+      System.out.println("Erro ao carregar item" + exception);
+    }
+  }
+}
