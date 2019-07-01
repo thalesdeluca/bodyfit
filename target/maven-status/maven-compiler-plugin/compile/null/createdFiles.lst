@@ -14,6 +14,7 @@ com/bodyfit/controller/evaluation/EvaluationController$1.class
 com/bodyfit/model/Bodybuilder.class
 com/bodyfit/dao/InstructorDAO.class
 com/bodyfit/controller/instructor/InstructorListController.class
+com/bodyfit/controller/dashboard/DashboardController$5.class
 com/bodyfit/controller/bodybuillder/BodybuilderListController$1.class
 com/bodyfit/controller/instructor/InstructorListController$1.class
 com/bodyfit/dto/BodyBuilderDTO.class

@@ -3,6 +3,7 @@ package com.bodyfit.controller.dashboard;
 import com.bodyfit.controller.bodybuillder.BodybuilderListController;
 import com.bodyfit.controller.instructor.InstructorListController;
 import com.bodyfit.controller.evaluation.EvaluationController;
+import com.bodyfit.controller.login.LoginController;
 import com.bodyfit.model.Instructor;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,10 +13,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
+
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 public class DashboardController {
     private Instructor user;
@@ -25,6 +29,9 @@ public class DashboardController {
 
     @FXML
     private VBox instructorBtn;
+
+    @FXML
+    private VBox signoutButton;
 
     @FXML
     private VBox feeBtn;
@@ -86,6 +93,18 @@ public class DashboardController {
                     evaluationController.start(stage, instructor);
                 } catch (Exception exception) {
                     System.out.println("Erro ao trocar de tela " + exception);
+                }
+            }
+        });
+
+        signoutButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    LoginController loginController = new LoginController();
+                    loginController.start(stage);
+                } catch (Exception ex) {
+                    System.out.println("Erro ao voltar para Login");
                 }
             }
         });
