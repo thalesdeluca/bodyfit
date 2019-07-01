@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -29,7 +30,7 @@ public class BodybuilderListItemController {
       FXMLLoader loader = new FXMLLoader(
           getClass().getClassLoader().getResource("view/components/list-item/list-item.fxml"));
       loader.setController(this);
-      AnchorPane root = loader.load();
+      Parent root = loader.load();
 
       name.setText(bodybuilder.getName());
       cpf.setText(bodybuilder.getCpf());
@@ -37,7 +38,7 @@ public class BodybuilderListItemController {
 
       parent.getChildren().add(root);
     } catch (Exception exception) {
-      System.out.println("Erro ao carregar item");
+      System.out.println("Erro ao carregar item" + exception);
     }
   }
 }

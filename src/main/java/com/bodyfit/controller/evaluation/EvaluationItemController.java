@@ -23,10 +23,10 @@ public class EvaluationItemController {
     @FXML
     private Label time;
 
-
     public EvaluationItemController(VBox parent, Evaluation evaluation) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/components/evaluation-item/evaluation-item.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getClassLoader().getResource("view/components/evaluation-item/evaluation-item.fxml"));
             loader.setController(this);
             AnchorPane root = loader.load();
 
@@ -34,7 +34,7 @@ public class EvaluationItemController {
             date.setText(evaluation.getDateTime());
 
             parent.getChildren().add(root);
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             System.out.println("Erro ao carregar item");
         }
     }

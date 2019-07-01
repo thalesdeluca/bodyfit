@@ -60,7 +60,7 @@ public class BodybuilderListController {
 
         ArrayList<Bodybuilder> bodybuilder = bodybuilderDAO.getAll();
 
-        for (int i = 0; i <= bodybuilder.size(); i++) {
+        for (int i = 0; i < bodybuilder.size(); i++) {
             BodybuilderListItemController bodybuilderListItemController = new BodybuilderListItemController(
                     bodybuilderList, bodybuilder.get(i));
         }

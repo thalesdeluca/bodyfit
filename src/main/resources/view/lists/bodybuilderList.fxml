@@ -15,7 +15,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" styleClass="headerBar" stylesheets="@styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <VBox id="backButton" alignment="CENTER" styleClass="backButton" stylesheets="@styles.css">
+            <VBox fx:id="backButton" alignment="CENTER" styleClass="backButton" stylesheets="@styles.css">
                <children>
                   <SVGPath content="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111  C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587  c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z" fill="WHITE" rotate="180.0" smooth="false">
                      <VBox.margin>
@@ -35,7 +35,7 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField id="searchInput" promptText="Pesquisar Aluno" styleClass="searchInput" stylesheets="@styles.css">
+                  <TextField fx:id="searchInput" promptText="Pesquisar Aluno" styleClass="searchInput" stylesheets="@styles.css">
                      <HBox.margin>
                         <Insets left="15.0" />
                      </HBox.margin>
@@ -55,7 +55,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button id="searchButton" mnemonicParsing="false" styleClass="searchButton" stylesheets="@styles.css" text="Buscar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="searchButton" mnemonicParsing="false" styleClass="searchButton" stylesheets="@styles.css" text="Buscar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Raleway" size="22.0" />
                </font>
@@ -78,7 +78,7 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="addBodybuilderButton" mnemonicParsing="false" onAction="#addNewBodybuilderButton" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
+      <Button fx:id="addBodybuilderButton" mnemonicParsing="false" onAction="#addNewBodybuilderButton" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0"></Button>
       <Button fx:id="addListButton" mnemonicParsing="false" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
          <font>
             <Font name="Raleway" size="44.0" />
