@@ -6,6 +6,7 @@ com/bodyfit/controller/dashboard/DashboardController$1.class
 com/bodyfit/controller/dashboard/DashboardController.class
 com/bodyfit/controller/dashboard/DashboardController$4.class
 com/bodyfit/Main.class
+com/bodyfit/controller/evaluation/EvaluationItemController.class
 com/bodyfit/model/Evaluation.class
 com/bodyfit/controller/dashboard/DashboardController$2.class
 com/bodyfit/controller/instructor/InstructorList.class

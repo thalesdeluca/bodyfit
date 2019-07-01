@@ -4,10 +4,17 @@ import com.bodyfit.dao.EvaluationDAO;
 import com.bodyfit.model.Evaluation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +23,7 @@ public class EvaluationController {
 
     private EvaluationDAO evaluationDAO;
     private ArrayList<Evaluation> evaluations = new ArrayList<>();
+
 
     @FXML
     private VBox evaluationBox;
@@ -37,11 +45,27 @@ public class EvaluationController {
         stage.setMinWidth(450);
         stage.setResizable(true);
 
-        /*
-         * TextField textField[] = new TextField[evaluations.size()]; for (int i = 0; i
-         * < evaluations.size(); i++) { textField[i] = new TextField("Hello");
-         * evaluationBox.setMargin(textField[i], new Insets(5)); }
-         */
+        HBox[] boxes = new HBox[evaluations.size()];
+        Label[] nameLabels = new Label[evaluations.size()];
+        Label[] dateLabels = new Label[evaluations.size()];
+        Label[] hourLabels = new Label[evaluations.size()];
+        String date;
+        String hour;
+        for (int i = 0; i < evaluations.size(); i++) {
+            boxes[i] = new HBox();
+            boxes[i].setPadding(new Insets(5, 12, 4, 12));
+            boxes[i].setStyle("-fx-background-color: #883f81; -fx-margin-top: 10px;");
+            nameLabels[i] = new Label("Nome: " + evaluations.get(i).getName());
+            nameLabels[i].setStyle("-fx-background-color: #883f81; -fx-height: 200px; -fx-font-size: 20px;");
+            date = evaluations.get(i).getDateTime().split("T")[0];
+            hour = evaluations.get(i).getDateTime().split("T")[1].split(".000")[0];
+            dateLabels[i] = new Label("Dia: " + date);
+            dateLabels[i].setStyle("-fx-background-color: #883f81; -fx-height: 200px; -fx-font-size: 20px;");
+            hourLabels[i] = new Label("Horario: " + hour);
+            hourLabels[i].setStyle("-fx-background-color: #883f81; -fx-height: 200px; -fx-font-size: 20px;");
+            boxes[i].getChildren().addAll(nameLabels[i], dateLabels[i], hourLabels[i]);
+            evaluationBox.getChildren().add(boxes[i]);
+        }
         stage.show();
     }
 }

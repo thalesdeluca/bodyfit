@@ -4,11 +4,13 @@ public class Evaluation {
     private Integer id;
     private String date_time;
     private Integer id_bodybuilder;
+    private String name;
 
-    public Evaluation(Integer id, String date_time, Integer id_bodybuilder) {
+    public Evaluation(Integer id, String date_time, Integer id_bodybuilder, String name) {
         this.id = id;
         this.date_time = date_time;
         this.id_bodybuilder = id_bodybuilder;
+        this.name = name;
     }
 
     public Integer getId() {
@@ -30,4 +32,8 @@ public class Evaluation {
     public void setIdBodybuilder(Integer id_bodybuilder) {
         this.id_bodybuilder = id_bodybuilder;
     }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
 }

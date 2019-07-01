@@ -2,6 +2,11 @@
   -fx-background-color: #efefef;
 }
 
+.evaluationBox {
+  -fx-height: 200px;
+}
+
+
 .container {
   -fx-padding: 20px;
 }

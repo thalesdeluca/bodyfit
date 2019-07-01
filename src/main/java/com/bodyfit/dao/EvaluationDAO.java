@@ -59,8 +59,9 @@ public class EvaluationDAO {
                 Integer id = o.getInt("id");
                 String date_time = o.getString("date_time");
                 Integer id_bodybuilder = o.getInt("id_bodybuilder");
+                String name = o.getString("name");
 
-                Evaluation e = new Evaluation(id, date_time, id_bodybuilder);
+                Evaluation e = new Evaluation(id, date_time, id_bodybuilder, name);
                 evaluations.add(e);
             }
 
