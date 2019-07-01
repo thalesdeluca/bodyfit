@@ -83,7 +83,7 @@ public class DashboardController {
                 System.out.println(mouseEvent.getSource().getClass().getName());
                 try {
                     EvaluationController evaluationController = new EvaluationController();
-                    evaluationController.start(stage);
+                    evaluationController.start(stage, instructor);
                 } catch (Exception exception) {
                     System.out.println("Erro ao trocar de tela " + exception);
                 }

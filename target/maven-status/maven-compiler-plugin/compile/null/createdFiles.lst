@@ -9,6 +9,7 @@ com/bodyfit/controller/evaluation/EvaluationItemController.class
 com/bodyfit/controller/signup/SignupBodybuilderController$1.class
 com/bodyfit/model/Evaluation.class
 com/bodyfit/dao/BodybuilderDAO.class
+com/bodyfit/controller/evaluation/EvaluationController$1.class
 com/bodyfit/model/Bodybuilder.class
 com/bodyfit/controller/instructor/InstructorListController.class
 com/bodyfit/controller/bodybuillder/BodybuilderListController$1.class

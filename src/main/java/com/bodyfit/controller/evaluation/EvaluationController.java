@@ -1,7 +1,11 @@
 package com.bodyfit.controller.evaluation;
 
+import com.bodyfit.controller.dashboard.DashboardController;
+import com.bodyfit.model.Instructor;
 import com.bodyfit.dao.EvaluationDAO;
 import com.bodyfit.model.Evaluation;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -11,28 +15,30 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class EvaluationController {
 
+    private Stage stage;
     private EvaluationDAO evaluationDAO;
     private ArrayList<Evaluation> evaluations = new ArrayList<>();
+    private Instructor user;
 
     @FXML
     private VBox evaluationBox;
+
+    @FXML
+    private VBox back;
 
     public EvaluationController() {
         evaluationDAO = new EvaluationDAO();
         evaluations = evaluationDAO.getEvaluations();
     }
 
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage, Instructor instructor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/avaliacoes/avaliacoes.fxml"));
 
         loader.setController(this);
@@ -43,6 +49,10 @@ public class EvaluationController {
         stage.setMinHeight(720);
         stage.setMinWidth(450);
         stage.setResizable(true);
+        stage.show();
+
+        this.user = instructor;
+        this.stage = stage;
 
         HBox[] boxes = new HBox[evaluations.size()];
         Label[] nameLabels = new Label[evaluations.size()];
@@ -65,6 +75,17 @@ public class EvaluationController {
             boxes[i].getChildren().addAll(nameLabels[i], dateLabels[i], hourLabels[i]);
             evaluationBox.getChildren().add(boxes[i]);
         }
-        stage.show();
+
+        back.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    DashboardController dashboardController = new DashboardController();
+                    dashboardController.start(stage, instructor);
+                } catch (Exception ex) {
+                    System.out.println("Erro ao voltar para dashboard");
+                }
+            }
+        });
     }
 }
