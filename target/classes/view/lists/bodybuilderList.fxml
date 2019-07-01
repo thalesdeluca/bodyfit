@@ -65,11 +65,11 @@
             </Button>
          </children>
       </HBox>
-      <ScrollPane id="bodybuilderScrollList" hbarPolicy="NEVER" layoutY="100.0" styleClass="scrollList" stylesheets="@styles.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane fx:id="bodybuilderScrollList" hbarPolicy="NEVER" layoutY="100.0" styleClass="scrollList" stylesheets="@styles.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <content>
-            <VBox id="bodybuilderListContainer" alignment="TOP_CENTER">
+            <VBox fx:id="bodybuilderListContainer" alignment="TOP_CENTER">
                <children>
-                  <VBox id="bodybuilderList" alignment="CENTER" maxWidth="700.0" spacing="10.0" styleClass="bodybuilderList">
+                  <VBox fx:id="bodybuilderList" alignment="CENTER" maxWidth="700.0" spacing="10.0" styleClass="bodybuilderList">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -79,7 +79,7 @@
          </content>
       </ScrollPane>
       <Button fx:id="addBodybuilderButton" mnemonicParsing="false" onAction="#addNewBodybuilderButton" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
-      <Button id="addListButton" mnemonicParsing="false" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
+      <Button fx:id="addListButton" mnemonicParsing="false" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
          <font>
             <Font name="Raleway" size="44.0" />
          </font>

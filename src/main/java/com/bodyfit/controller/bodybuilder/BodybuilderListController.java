@@ -1,26 +1,26 @@
-package com.bodyfit.controller.bodybuillder;
+package com.bodyfit.controller.bodybuilder;
 
 import com.bodyfit.controller.dashboard.DashboardController;
 import com.bodyfit.controller.signup.SignupBodybuilderController;
 import com.bodyfit.dao.BodybuilderDAO;
 import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Instructor;
-import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import java.io.IOException;
 
 public class BodybuilderListController {
 
@@ -37,9 +37,6 @@ public class BodybuilderListController {
     private VBox bodybuilderList;
 
     @FXML
-    private HBox bodybuilderListItem;
-
-    @FXML
     private Button addBodybuilderButton;
 
     public BodybuilderListController() {
@@ -47,6 +44,7 @@ public class BodybuilderListController {
     }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/bodybuilderList.fxml"));
         loader.setController(this);
         Parent root = loader.load();
@@ -60,13 +58,15 @@ public class BodybuilderListController {
         this.user = instructor;
         this.stage = stage;
 
-        try {
-            ArrayList<Bodybuilder> bodybuilder = bodybuilderDAO.getAll();
-        } catch (Exception ex) {
-            System.out.println("Erro no getAll:" + ex);
+        ArrayList<Bodybuilder> bodybuilder = bodybuilderDAO.getAll();
+
+        for (int i = 0; i <= bodybuilder.size(); i++) {
+            BodybuilderListItemController bodybuilderListItemController = new BodybuilderListItemController(
+                    bodybuilderList, bodybuilder.get(i));
         }
 
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {

@@ -31,7 +31,9 @@ public class InstructorListController {
     @FXML
     private HBox bodybuilderListItem;
 
-    public InstructorListController() { instructorListDAO = new InstructorListDAO();}
+    public InstructorListController() {
+        instructorListDAO = new InstructorListDAO();
+    }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/lists/instructorList.fxml"));

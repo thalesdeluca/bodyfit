@@ -1,4 +1,5 @@
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/evaluation/EvaluationController.java
+/home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/bodybuilder/BodybuilderListController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/evaluation/EvaluationItemController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dto/LoginDto.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/instructor/InstructorListController.java
@@ -6,12 +7,12 @@
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/instructor/InstructorList.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dto/EvaluationDTO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dao/BodybuilderDAO.java
+/home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/bodybuilder/BodybuilderListItemController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/dashboard/DashboardController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dao/InstructorListDAO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/Main.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/signup/SignupBodybuilderController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dao/EvaluationDAO.java
-/home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/bodybuillder/BodybuilderListController.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/dto/BodyBuilderDTO.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/model/Instructor.java
 /home/guilherme/Folder/Unect/Projects/teste/bodyfit/src/main/java/com/bodyfit/controller/login/LoginController.java

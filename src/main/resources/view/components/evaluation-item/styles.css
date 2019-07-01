@@ -1,5 +1,6 @@
 .item {
   -fx-background-color: #883f81;
+  -fx-padding: 14px;
 }
 
 .status {

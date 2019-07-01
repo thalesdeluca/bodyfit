@@ -13,17 +13,17 @@
          <children>
             <AnchorPane HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="Joselito Carmona Ramones" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+                  <Label fx:id="name" text="Joselito Carmona Ramones" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font name="Raleway" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="094.073.209-28" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
+                  <Label fx:id="cpf" text="094.073.209-28" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
                      <font>
                         <Font name="Raleway" size="16.0" />
                      </font>
                   </Label>
-                  <Label text="24/06/1558" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+                  <Label fx:id="birth_date" text="24/06/1558" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font name="Raleway" size="20.0" />
                      </font>

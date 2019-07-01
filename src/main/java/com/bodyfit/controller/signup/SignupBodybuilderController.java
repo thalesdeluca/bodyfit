@@ -1,6 +1,6 @@
 package com.bodyfit.controller.signup;
 
-import com.bodyfit.controller.bodybuillder.BodybuilderListController;
+import com.bodyfit.controller.bodybuilder.BodybuilderListController;
 import com.bodyfit.controller.dashboard.DashboardController;
 import com.bodyfit.controller.signup.SignupBodybuilderController;
 import com.bodyfit.dao.BodybuilderDAO;
@@ -32,11 +32,13 @@ public class SignupBodybuilderController {
 
     private BodybuilderDAO bodybuilderDAO;
 
-
-    public SignupBodybuilderController() { bodybuilderDAO = new BodybuilderDAO(); }
+    public SignupBodybuilderController() {
+        bodybuilderDAO = new BodybuilderDAO();
+    }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/signup/bodybuilderSignup.fxml"));
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getClassLoader().getResource("view/signup/bodybuilderSignup.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("Bodyfit");
@@ -60,78 +62,73 @@ public class SignupBodybuilderController {
         });
     }
 
+    @FXML
+    private Button signupButton;
 
-        @FXML
-        private Button signupButton;
+    @FXML
+    private Button clearButton;
 
-        @FXML
-        private Button clearButton;
+    @FXML
+    private TextField nameInput;
 
+    @FXML
+    private TextField cpfInput;
 
+    @FXML
+    private TextField birthdayInput;
 
-        @FXML
-        private TextField nameInput;
+    @FXML
+    private TextField telInput;
 
-        @FXML
-        private TextField cpfInput;
+    @FXML
+    private TextField monthlyChargeInput;
 
-        @FXML
-        private TextField birthdayInput;
+    @FXML
+    public void onClicky(ActionEvent event) throws IOException {
+        clearButton.setDisable(true);
 
-        @FXML
-        private TextField telInput;
-
-        @FXML
-        private TextField monthlyChargeInput;
-
-        @FXML
-        public void onClicky(ActionEvent event) throws IOException {
-            clearButton.setDisable(true);
-
-
-            String name = nameInput.getText();
-            String cpf = cpfInput.getText();
-            String birthday = birthdayInput.getText();
-            String tel = telInput.getText();
-            Boolean status = true;
-            String last_paid = null;
-            Double value = 0.0;
-            try {
-                value = Double.parseDouble(monthlyChargeInput.getText());
-            } catch (Exception ex) {
-                System.out.println(ex);
-            }
-            String bodybuilderCode = bodybuilderDAO.register(name, cpf, birthday, tel, status, last_paid, value);
-
-            if(bodybuilderCode != null) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Registro");
-                alert.setHeaderText("Cadastrado!");
-                alert.setContentText("O bodybuilder foi cadastrado!");
-                alert.showAndWait();
-                nameInput.setText("");
-                cpfInput.setText("");
-                birthdayInput.setText("");
-                telInput.setText("");
-                monthlyChargeInput.setText("");
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Registro");
-                alert.setHeaderText("Erro!");
-                alert.setContentText("Campos errados ou usuário já cadastrado!");
-                alert.showAndWait();
-            }
-            clearButton.setDisable(false);
+        String name = nameInput.getText();
+        String cpf = cpfInput.getText();
+        String birthday = birthdayInput.getText();
+        String tel = telInput.getText();
+        Boolean status = true;
+        String last_paid = null;
+        Double value = 0.0;
+        try {
+            value = Double.parseDouble(monthlyChargeInput.getText());
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
+        String bodybuilderCode = bodybuilderDAO.register(name, cpf, birthday, tel, status, last_paid, value);
 
-        @FXML
-        public void clearForm(ActionEvent event) throws IOException {
+        if (bodybuilderCode != null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registro");
+            alert.setHeaderText("Cadastrado!");
+            alert.setContentText("O bodybuilder foi cadastrado!");
+            alert.showAndWait();
             nameInput.setText("");
             cpfInput.setText("");
             birthdayInput.setText("");
             telInput.setText("");
             monthlyChargeInput.setText("");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registro");
+            alert.setHeaderText("Erro!");
+            alert.setContentText("Campos errados ou usuário já cadastrado!");
+            alert.showAndWait();
         }
+        clearButton.setDisable(false);
+    }
 
+    @FXML
+    public void clearForm(ActionEvent event) throws IOException {
+        nameInput.setText("");
+        cpfInput.setText("");
+        birthdayInput.setText("");
+        telInput.setText("");
+        monthlyChargeInput.setText("");
+    }
 
 }
