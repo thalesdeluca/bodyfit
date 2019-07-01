@@ -81,7 +81,7 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button id="addListButton" mnemonicParsing="false" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
+      <Button id="addListButton" fx:id="addListButton" mnemonicParsing="false" onAction="#addNewInstructorButton" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
          <font>
             <Font name="Raleway" size="44.0" />
          </font>

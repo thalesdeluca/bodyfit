@@ -1,11 +1,13 @@
 package com.bodyfit.dao;
 
 
+import com.bodyfit.helper.Request;
 import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Instructor;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
@@ -17,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class InstructorListDAO {
+public class InstructorDAO {
 
     public ArrayList<Instructor> getAll() {
         HttpClient client = HttpClientBuilder.create().build();
@@ -64,6 +66,39 @@ public class InstructorListDAO {
                 arrayInstructor.add(instructor);
             }
             return arrayInstructor;
+        }
+    }
+
+    public String register(String name, String cpf, String cref, String birth_date) {
+        JsonObject json = new JsonObject();
+        json.addProperty("name", name);
+        json.addProperty("cpf", cpf);
+        json.addProperty("cref", cref);
+        json.addProperty("birth_date", birth_date);
+
+        HttpResponse httpResponse = null;
+
+        try {
+            httpResponse = Request.post("https://app-bodyfit.herokuapp.com/instructor/register", json);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        if(httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+            try {
+                String res = EntityUtils.toString(httpResponse.getEntity());
+                System.out.println("Não foi gravado!" + res);
+            } catch (Exception ex) {
+                System.out.println("Erro na conversão para Json");
+            }
+            return null;
+        } else {
+            try {
+                String res = EntityUtils.toString(httpResponse.getEntity());
+                System.out.println("Foi gravado!" + res);
+            } catch (Exception ex) {
+                System.out.println("Erro na conversão para Json");
+            }
+            return "";
         }
     }
 }

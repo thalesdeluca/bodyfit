@@ -1,4 +1,5 @@
 com/bodyfit/helper/Request.class
+com/bodyfit/controller/signup/SignupInstructorController$1.class
 com/bodyfit/dao/LoginDAO.class
 com/bodyfit/controller/bodybuillder/BodybuilderListController.class
 com/bodyfit/controller/dashboard/DashboardController$1.class
@@ -11,16 +12,17 @@ com/bodyfit/model/Evaluation.class
 com/bodyfit/dao/BodybuilderDAO.class
 com/bodyfit/controller/evaluation/EvaluationController$1.class
 com/bodyfit/model/Bodybuilder.class
+com/bodyfit/dao/InstructorDAO.class
 com/bodyfit/controller/instructor/InstructorListController.class
 com/bodyfit/controller/bodybuillder/BodybuilderListController$1.class
 com/bodyfit/controller/instructor/InstructorListController$1.class
 com/bodyfit/dto/BodyBuilderDTO.class
 com/bodyfit/controller/dashboard/DashboardController$2.class
+com/bodyfit/controller/signup/SignupInstructorController.class
 com/bodyfit/controller/evaluation/EvaluationController.class
-com/bodyfit/dao/InstructorListDAO.class
 com/bodyfit/controller/dashboard/DashboardController$3.class
-com/bodyfit/controller/TestController.class
 com/bodyfit/dao/EvaluationDAO.class
+com/bodyfit/controller/TestController.class
 com/bodyfit/controller/signup/SignupBodybuilderController.class
 com/bodyfit/controller/login/LoginController.class
 com/bodyfit/model/Instructor.class
