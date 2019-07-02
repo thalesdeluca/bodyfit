@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class EvaluationItemController {
 
@@ -31,7 +33,11 @@ public class EvaluationItemController {
             AnchorPane root = loader.load();
 
             name.setText(evaluation.getName());
-            date.setText(evaluation.getDateTime());
+
+            LocalDateTime data = LocalDateTime.parse(evaluation.getDateTime());
+
+            date.setText("Data: "+ data.format(DateTimeFormatter.ofPattern("DD-MM-yyyy")));
+            time.setText("Hora: "+ data.format(DateTimeFormatter.ofPattern("HH:mm")));
 
             parent.getChildren().add(root);
         } catch (Exception exception) {

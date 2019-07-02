@@ -5,4 +5,5 @@
 
 .status {
   -fx-background-color: #df7373;
+  -fx-padding: 12px;
 }

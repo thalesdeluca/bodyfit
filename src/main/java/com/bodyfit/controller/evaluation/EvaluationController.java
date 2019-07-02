@@ -1,18 +1,22 @@
 package com.bodyfit.controller.evaluation;
 
+import com.bodyfit.controller.dashboard.DashboardController;
 import com.bodyfit.dao.EvaluationDAO;
 import com.bodyfit.model.Evaluation;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -27,6 +31,9 @@ public class EvaluationController {
 
     @FXML
     private VBox evaluationBox;
+
+    @FXML
+    private VBox backButton;
 
     public EvaluationController() {
         evaluationDAO = new EvaluationDAO();
@@ -47,6 +54,14 @@ public class EvaluationController {
         for (Evaluation ev : evaluations) {
             EvaluationItemController evaluationItemController = new EvaluationItemController(evaluationBox, ev);
         }
+
+        backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent t) {
+                DashboardController dashboardController = new DashboardController();
+                dashboardController.start(stage, user);
+            }
+        });
 
     }
 
