@@ -30,12 +30,12 @@
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets right="20.0" />
+                  <Insets left="20.0" right="20.0" />
                </HBox.margin>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField fx:id="searchInput" promptText="Pesquisar Aluno" styleClass="searchInput" stylesheets="@styles.css">
+                  <TextField fx:id="searchInput" promptText="Pesquisar Aluno" styleClass="searchInput" stylesheets="@styles.css" HBox.hgrow="NEVER">
                      <HBox.margin>
                         <Insets left="15.0" />
                      </HBox.margin>
@@ -60,7 +60,7 @@
                   <Font name="Raleway" size="22.0" />
                </font>
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="10.0" right="20.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -78,8 +78,8 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="addBodybuilderButton" mnemonicParsing="false" onAction="#addNewBodybuilderButton" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0"></Button>
-      <Button fx:id="addListButton" mnemonicParsing="false" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
+      <Button fx:id="addBodybuilderButton" mnemonicParsing="false" onAction="#addNewBodybuilderButton" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0" />
+      <Button id="addListButton" fx:id="addListButton" mnemonicParsing="false" onAction="#addNewBodybuilderButton" styleClass="addListButton" text="+" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="30.0">
          <font>
             <Font name="Raleway" size="44.0" />
          </font>

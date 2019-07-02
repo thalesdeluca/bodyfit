@@ -16,7 +16,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class InstructorListDAO {
+public class InstructorDAO {
 
     public ArrayList<Instructor> getAll() {
         HttpClient client = HttpClientBuilder.create().build();

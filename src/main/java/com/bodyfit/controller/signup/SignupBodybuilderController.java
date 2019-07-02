@@ -37,12 +37,11 @@ public class SignupBodybuilderController {
     }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getClassLoader().getResource("view/signup/bodybuilderSignup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/signup/bodybuilderSignup.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("Bodyfit");
-        stage.setScene(new Scene(root, 768, 450));
+        stage.setScene(new Scene(root));
         stage.setMinHeight(720);
         stage.setMinWidth(450);
         stage.setResizable(true);
