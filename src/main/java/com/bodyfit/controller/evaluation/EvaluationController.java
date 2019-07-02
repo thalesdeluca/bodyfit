@@ -3,6 +3,7 @@ package com.bodyfit.controller.evaluation;
 import com.bodyfit.controller.dashboard.DashboardController;
 import com.bodyfit.dao.EvaluationDAO;
 import com.bodyfit.model.Evaluation;
+import com.bodyfit.model.Instructor;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +29,7 @@ public class EvaluationController {
 
     private EvaluationDAO evaluationDAO;
     private ArrayList<Evaluation> evaluations = new ArrayList<>();
+    private Instructor user;
 
     @FXML
     private VBox evaluationBox;
@@ -40,7 +42,7 @@ public class EvaluationController {
         evaluations = evaluationDAO.getEvaluations();
     }
 
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage, Instructor instructor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/avaliacoes/avaliacoes.fxml"));
         loader.setController(this);
         Parent root = loader.load();
@@ -50,6 +52,7 @@ public class EvaluationController {
         stage.setMinWidth(450);
         stage.setResizable(true);
         stage.show();
+        user = instructor;
 
         for (Evaluation ev : evaluations) {
             EvaluationItemController evaluationItemController = new EvaluationItemController(evaluationBox, ev);
@@ -58,8 +61,13 @@ public class EvaluationController {
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {
-                DashboardController dashboardController = new DashboardController();
-                dashboardController.start(stage, user);
+                try {
+                    DashboardController dashboardController = new DashboardController();
+                    dashboardController.start(stage, user);
+                } catch(IOException ex) {
+                    System.out.println("Erro ao trocar de tela");
+                }
+
             }
         });
 

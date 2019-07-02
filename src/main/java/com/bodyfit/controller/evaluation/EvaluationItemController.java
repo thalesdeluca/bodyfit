@@ -34,9 +34,9 @@ public class EvaluationItemController {
 
             name.setText(evaluation.getName());
 
-            LocalDateTime data = LocalDateTime.parse(evaluation.getDateTime());
+            LocalDateTime data = LocalDateTime.parse(evaluation.getDateTime(), DateTimeFormatter.ISO_DATE_TIME);
 
-            date.setText("Data: "+ data.format(DateTimeFormatter.ofPattern("DD-MM-yyyy")));
+            date.setText("Data: "+ data.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
             time.setText("Hora: "+ data.format(DateTimeFormatter.ofPattern("HH:mm")));
 
             parent.getChildren().add(root);
