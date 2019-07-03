@@ -25,10 +25,11 @@ import java.util.ArrayList;
 public class BodybuilderListController {
 
     private Stage stage;
-
     private Instructor user;
-
     private BodybuilderDAO bodybuilderDAO;
+    public BodybuilderListController() {
+        bodybuilderDAO = new BodybuilderDAO();
+    }
 
     @FXML
     private VBox backButton;
@@ -37,11 +38,7 @@ public class BodybuilderListController {
     private VBox bodybuilderList;
 
     @FXML
-    private Button addBodybuilderButton;
-
-    public BodybuilderListController() {
-        bodybuilderDAO = new BodybuilderDAO();
-    }
+    private Button addListButton;
 
     public void start(Stage stage, Instructor instructor) throws IOException {
 
@@ -49,7 +46,7 @@ public class BodybuilderListController {
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");
-        stage.setScene(new Scene(root, 768, 450));
+        stage.setScene(new Scene(root));
         stage.setMinHeight(720);
         stage.setMinWidth(450);
         stage.setResizable(true);
@@ -61,12 +58,10 @@ public class BodybuilderListController {
         ArrayList<Bodybuilder> bodybuilder = bodybuilderDAO.getAll();
 
         for (int i = 0; i < bodybuilder.size(); i++) {
-            BodybuilderListItemController bodybuilderListItemController = new BodybuilderListItemController(
-                    bodybuilderList, bodybuilder.get(i));
+            BodybuilderListItemController bodybuilderListItemController = new BodybuilderListItemController(bodybuilderList, bodybuilder.get(i));
         }
 
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
