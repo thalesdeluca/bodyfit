@@ -4,11 +4,14 @@ import com.bodyfit.dao.CircuitDAO;
 import com.bodyfit.dao.InstructorDAO;
 import com.bodyfit.model.Instructor;
 import com.bodyfit.model.Intensity;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -21,7 +24,7 @@ public class CircuitController {
     private Stage stage;
     private Instructor user;
     private InstructorDAO instructorDAO;
-    CircuitDAO circuitDAO = new CircuitDAO();
+
     ArrayList<Intensity> intensities;
 
 
@@ -32,7 +35,15 @@ public class CircuitController {
     private VBox circuitList;
 
     @FXML
+    private Button addNewExerciseButton;
+
+    @FXML
     private HBox circuitListItem;
+
+    public CircuitController() {
+        CircuitDAO circuitDAO = new CircuitDAO();
+        intensities = circuitDAO.getIntensity();
+    }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/createCircuit/createCircuit.fxml"));
@@ -48,21 +59,18 @@ public class CircuitController {
         this.user = instructor;
         this.stage = stage;
 
-        try {
-            intensities = circuitDAO.getIntensity();
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
 
         for(int i = 0; i < intensities.size(); i++) {
             intensityComboBox.getItems().add(intensities.get(i).getName());
         }
 
-    }
+        addNewExerciseButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                CircuitListItemController circuitListItemController = new CircuitListItemController(circuitList);
+            }
+        });
 
-    @FXML
-    public void addNewExercise(ActionEvent event) throws IOException {
-        circuitList.getChildren().add(circuitListItem);
     }
 
 

@@ -150,7 +150,7 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button id="addNewExerciseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="buttonAddForm, buttonForm" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="55.0">
+      <Button id="addNewExerciseButton" fx:id="addNewExerciseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="buttonAddForm, buttonForm" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="55.0">
          <font>
             <Font name="Raleway" size="41.0" />
          </font>
@@ -159,13 +159,13 @@
          <children>
             <Label text="Intensidade">
                <font>
-                  <Font name="Raleway Bold" size="17.0" />
+                  <Font name="Raleway Bold" size="16.0" />
                </font>
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets right="5.0" />
                </HBox.margin>
             </Label>
-            <ComboBox id="intensityComboBox" fx:id="intensityComboBox" promptText="Escolha..." />
+            <ComboBox id="intensityComboBox" fx:id="intensityComboBox" prefWidth="150.0" promptText="Escolha.." />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

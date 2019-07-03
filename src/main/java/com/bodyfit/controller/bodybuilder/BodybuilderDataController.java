@@ -1,5 +1,6 @@
 package com.bodyfit.controller.bodybuilder;
 
+import com.bodyfit.controller.circuit.CircuitController;
 import com.bodyfit.controller.dashboard.DashboardController;
 import com.bodyfit.controller.instructor.InstructorListController;
 import com.bodyfit.dao.BodybuilderDAO;
@@ -35,6 +36,9 @@ public class BodybuilderDataController {
 
     @FXML
     private Button confirmEvaluation;
+
+    @FXML
+    private Button createCircuit;
 
     @FXML
     private AnchorPane createEvaluationModal;
@@ -136,6 +140,18 @@ public class BodybuilderDataController {
                         }
                     } catch (Exception ex) {
                         System.out.println("Erro ao voltar para dashboard");
+                    }
+                }
+            });
+
+            createCircuit.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    CircuitController circuitController = new CircuitController();
+                    try {
+                        circuitController.start(stage, instructor);
+                    } catch (Exception ex) {
+                        System.out.println("Não foi posśível criar a tela de adicionar circuito!" + ex);
                     }
                 }
             });
