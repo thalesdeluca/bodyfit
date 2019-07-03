@@ -108,4 +108,36 @@ public class BodybuilderDAO {
             return bodyBuilderDTO.getBodybuilder();
         }
     }
+
+    public boolean createEvaluation(Integer id, String date, String hour) {
+        JsonObject json = new JsonObject();
+        json.addProperty("id_bodybuilder", id);
+        json.addProperty("date", date);
+        json.addProperty("time", hour);
+
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = Request.post("https://app-bodyfit.herokuapp.com/evaluation/create", json);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        if(httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+            try {
+                String res = EntityUtils.toString(httpResponse.getEntity());
+                System.out.println("nao foi gravado" + res);
+            } catch (Exception ex) {
+                System.out.println("Erro na conversão para Json");
+            }
+            return false;
+
+        } else {
+            try {
+                String res = EntityUtils.toString(httpResponse.getEntity());
+                System.out.println("foi gravado" + res);
+            } catch (Exception ex) {
+                System.out.println("Erro na conversão para Json");
+            }
+            return true;
+        }
+    }
 }
