@@ -62,7 +62,7 @@ public class BodybuilderListController {
 
         for (int i = 0; i < bodybuilder.size(); i++) {
             BodybuilderListItemController bodybuilderListItemController = new BodybuilderListItemController(
-                    bodybuilderList, bodybuilder.get(i));
+                    stage, bodybuilderList, bodybuilder.get(i), instructor);
         }
 
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {

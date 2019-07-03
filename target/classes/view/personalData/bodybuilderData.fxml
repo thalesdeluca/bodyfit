@@ -39,7 +39,7 @@
             </VBox>
             <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                <children>
-                  <Label id="nameLabel" alignment="TOP_LEFT" contentDisplay="CENTER" text="Nome do meliante" textAlignment="CENTER" textFill="#330c2f" HBox.hgrow="ALWAYS">
+                  <Label fx:id="name" alignment="TOP_LEFT" contentDisplay="CENTER" text="Nome do meliante" textAlignment="CENTER" textFill="#330c2f" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Raleway Bold" size="44.0" />
                      </font>
@@ -67,7 +67,7 @@
                               <Font name="Raleway" size="20.0" />
                            </font>
                         </Label>
-                        <Label id="cpfLabel" text="251.157.989-58">
+                        <Label fx:id="cpf" text="251.157.989-58">
                            <font>
                               <Font name="Raleway" size="20.0" />
                            </font>
@@ -84,7 +84,7 @@
                               <Font name="Raleway" size="20.0" />
                            </font>
                         </Label>
-                        <Label id="telLabel" text="(43)99157-8987">
+                        <Label fx:id="phone" text="(43)99157-8987">
                            <font>
                               <Font name="Raleway" size="20.0" />
                            </font>
@@ -103,7 +103,7 @@
                         <Font name="Raleway" size="20.0" />
                      </font>
                   </Label>
-                  <Label id="birthdayLabel" nodeOrientation="LEFT_TO_RIGHT" text="25/05/1987">
+                  <Label fx:id="birth_date" nodeOrientation="LEFT_TO_RIGHT" text="25/05/1987">
                      <font>
                         <Font name="Raleway" size="20.0" />
                      </font>
@@ -130,7 +130,7 @@
                               <Font name="Raleway" size="20.0" />
                            </font>
                         </Label>
-                        <Label id="statusLabel" text="Ativo">
+                        <Label fx:id="status" text="Ativo">
                            <font>
                               <Font name="Raleway" size="20.0" />
                            </font>
@@ -147,7 +147,7 @@
                               <Font name="Raleway" size="20.0" />
                            </font>
                         </Label>
-                        <Label id="monthlyChargeLabel" text="R$ 69.00">
+                        <Label fx:id="value" text="R$ 69.00">
                            <font>
                               <Font name="Raleway" size="20.0" />
                            </font>
@@ -164,7 +164,7 @@
                               <Font name="Raleway" size="20.0" />
                            </font>
                         </Label>
-                        <Label id="nextEvaluationLabel" text="25/07/2019">
+                        <Label fx:id="nextEvaluation" text="25/07/2019">
                            <font>
                               <Font name="Raleway" size="20.0" />
                            </font>
@@ -181,26 +181,7 @@
             </VBox>
             <VBox>
                <children>
-                  <HBox>
-                     <children>
-                        <Label text="Data do proximo pagamento: ">
-                           <font>
-                              <Font name="Raleway" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label id="nextMonthlyChargeLabel" nodeOrientation="LEFT_TO_RIGHT" text="25/05/1987">
-                           <font>
-                              <Font name="Raleway" size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </HBox>
+
                   <HBox>
                      <children>
                         <Label text="Data do ultimo pagamento: ">
@@ -208,7 +189,7 @@
                               <Font name="Raleway" size="20.0" />
                            </font>
                         </Label>
-                        <Label id="lastMonthlyChargeLabel" nodeOrientation="LEFT_TO_RIGHT" text="25/05/1987">
+                        <Label fx:id="last_paid" nodeOrientation="LEFT_TO_RIGHT" text="25/05/1987">
                            <font>
                               <Font name="Raleway" size="20.0" />
                            </font>

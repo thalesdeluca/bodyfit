@@ -8,10 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class Main extends Application{
+public class Main extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage) throws Exception {
         Font.loadFont(getClass().getResourceAsStream("fonts/Khand-Regular.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("fonts/Khand-Bold.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("fonts/Khand-Light.ttf"), 14);
