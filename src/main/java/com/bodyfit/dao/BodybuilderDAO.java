@@ -74,7 +74,7 @@ public class BodybuilderDAO {
     }
 
 
-    public String register(String name, String cpf, String birthday, String tel, Boolean status, String last_paid, Double value) {
+    public Bodybuilder register(String name, String cpf, String birthday, String tel, Boolean status, String last_paid, Double value) {
         JsonObject json = new JsonObject();
         json.addProperty("name", name);
         json.addProperty("cpf", cpf);
@@ -91,22 +91,21 @@ public class BodybuilderDAO {
             System.out.println(ex);
         }
         if(httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-            try {
-                String res = EntityUtils.toString(httpResponse.getEntity());
-                System.out.println("nao foi gravado" + res);
-            } catch (Exception ex) {
-                System.out.println("Erro na conversão para Json");
-            }
+            System.out.println("Erro na conversão para Json");
             return null;
 
         } else {
+            String res = "";
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
             try {
-                String res = EntityUtils.toString(httpResponse.getEntity());
+                res = EntityUtils.toString(httpResponse.getEntity());
                 System.out.println("foi gravado" + res);
             } catch (Exception ex) {
                 System.out.println("Erro na conversão para Json");
             }
-            return "";
+
+            BodyBuilderDTO bodyBuilderDTO = gson.fromJson(res, BodyBuilderDTO.class);
+            return bodyBuilderDTO.getBodybuilder();
         }
     }
 }

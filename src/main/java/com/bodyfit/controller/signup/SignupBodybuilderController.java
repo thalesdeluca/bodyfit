@@ -26,15 +26,34 @@ import java.util.ArrayList;
 public class SignupBodybuilderController {
 
     private Instructor user;
-
-    @FXML
-    private VBox backButton;
-
     private BodybuilderDAO bodybuilderDAO;
-
     public SignupBodybuilderController() {
         bodybuilderDAO = new BodybuilderDAO();
     }
+
+    @FXML
+    private Button signupButton;
+
+    @FXML
+    private Button clearButton;
+
+    @FXML
+    private TextField nameInput;
+
+    @FXML
+    private TextField cpfInput;
+
+    @FXML
+    private TextField birthdayInput;
+
+    @FXML
+    private TextField telInput;
+
+    @FXML
+    private TextField monthlyChargeInput;
+
+    @FXML
+    private VBox backButton;
 
     public void start(Stage stage, Instructor instructor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/signup/bodybuilderSignup.fxml"));
@@ -62,27 +81,6 @@ public class SignupBodybuilderController {
     }
 
     @FXML
-    private Button signupButton;
-
-    @FXML
-    private Button clearButton;
-
-    @FXML
-    private TextField nameInput;
-
-    @FXML
-    private TextField cpfInput;
-
-    @FXML
-    private TextField birthdayInput;
-
-    @FXML
-    private TextField telInput;
-
-    @FXML
-    private TextField monthlyChargeInput;
-
-    @FXML
     public void onClicky(ActionEvent event) throws IOException {
         clearButton.setDisable(true);
 
@@ -98,13 +96,13 @@ public class SignupBodybuilderController {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        String bodybuilderCode = bodybuilderDAO.register(name, cpf, birthday, tel, status, last_paid, value);
+        Bodybuilder bodybuilderCode = bodybuilderDAO.register(name, cpf, birthday, tel, status, last_paid, value);
 
         if (bodybuilderCode != null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro");
             alert.setHeaderText("Cadastrado!");
-            alert.setContentText("O bodybuilder foi cadastrado!");
+            alert.setContentText("O bodybuilder foi cadastrado!\n O código do bodybuilder é: " + bodybuilderCode.getCode());
             alert.showAndWait();
             nameInput.setText("");
             cpfInput.setText("");

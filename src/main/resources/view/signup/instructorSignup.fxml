@@ -149,7 +149,7 @@
                   </VBox>
                   <VBox alignment="CENTER_RIGHT" GridPane.rowIndex="2">
                      <children>
-                        <Button id="clearButton" fx:id="clearButton" mnemonicParsing="false" styleClass="clearButton" stylesheets="@styles.css" text="Limpar" textFill="#883f81">
+                        <Button id="clearButton" fx:id="clearButton" mnemonicParsing="false" onAction="#clearForm" styleClass="clearButton" stylesheets="@styles.css" text="Limpar" textFill="#883f81">
                            <VBox.margin>
                               <Insets right="30.0" />
                            </VBox.margin>

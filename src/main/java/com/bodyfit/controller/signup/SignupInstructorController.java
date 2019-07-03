@@ -20,11 +20,12 @@ import java.io.IOException;
 public class SignupInstructorController {
     private Instructor user;
     private Stage stage;
+    private InstructorDAO instructorDAO;
+    public SignupInstructorController() { instructorDAO = new InstructorDAO(); }
 
     @FXML
     private VBox backButton;
 
-    private InstructorDAO instructorDAO;
 
     @FXML
     private TextField nameInput;
@@ -40,8 +41,6 @@ public class SignupInstructorController {
 
     @FXML
     private Button clearButton;
-
-    public SignupInstructorController() { instructorDAO = new InstructorDAO(); }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/signup/instructorSignup.fxml"));
@@ -101,6 +100,14 @@ public class SignupInstructorController {
             alert.showAndWait();
         }
         clearButton.setDisable(false);
+    }
+
+    @FXML
+    public void clearForm(ActionEvent event) throws IOException {
+        nameInput.setText("");
+        cpfInput.setText("");
+        birthdayInput.setText("");
+        crefInput.setText("");
     }
 
 

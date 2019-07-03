@@ -25,10 +25,11 @@ import java.util.ArrayList;
 public class BodybuilderListController {
 
     private Stage stage;
-
     private Instructor user;
-
     private BodybuilderDAO bodybuilderDAO;
+    public BodybuilderListController() {
+        bodybuilderDAO = new BodybuilderDAO();
+    }
 
     @FXML
     private VBox backButton;
@@ -38,10 +39,6 @@ public class BodybuilderListController {
 
     @FXML
     private Button addListButton;
-
-    public BodybuilderListController() {
-        bodybuilderDAO = new BodybuilderDAO();
-    }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
 
