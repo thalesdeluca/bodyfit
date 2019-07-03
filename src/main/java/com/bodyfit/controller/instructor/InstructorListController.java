@@ -56,8 +56,7 @@ public class InstructorListController {
         ArrayList<Instructor> instructors = instructorDAO.getAll();
 
         for (int i = 0; i < instructors.size(); i++) {
-            InstructorListItemController bodybuilderListItemController = new InstructorListItemController(
-                    instructorList, instructors.get(i));
+            InstructorListItemController bodybuilderListItemController = new InstructorListItemController(stage, instructorList, instructors.get(i));
         }
 
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {

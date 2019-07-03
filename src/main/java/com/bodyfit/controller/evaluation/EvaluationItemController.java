@@ -1,16 +1,20 @@
 package com.bodyfit.controller.evaluation;
 
 import com.bodyfit.model.Evaluation;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class EvaluationItemController {
 
@@ -23,6 +27,9 @@ public class EvaluationItemController {
     @FXML
     private Label time;
 
+    @FXML
+    private AnchorPane test;
+
     public EvaluationItemController(VBox parent, Evaluation evaluation) {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -31,7 +38,11 @@ public class EvaluationItemController {
             AnchorPane root = loader.load();
 
             name.setText(evaluation.getName());
-            date.setText(evaluation.getDateTime());
+
+            LocalDateTime data = LocalDateTime.parse(evaluation.getDateTime(), DateTimeFormatter.ISO_DATE_TIME);
+
+            date.setText("Data: "+ data.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+            time.setText("Hora: "+ data.format(DateTimeFormatter.ofPattern("HH:mm")));
 
             parent.getChildren().add(root);
         } catch (Exception exception) {
