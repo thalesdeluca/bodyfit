@@ -19,7 +19,7 @@
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1024.0" styleClass="headerBar" stylesheets="@styles.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <VBox id="backButton" alignment="CENTER_RIGHT" styleClass="backButton" stylesheets="@styles.css">
+            <VBox id="backButton" fx:id="backButton" alignment="CENTER_RIGHT" styleClass="backButton" stylesheets="@styles.css">
                <children>
                   <SVGPath content="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111  C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587  c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z" fill="#883f81" rotate="180.0" smooth="false">
                      <VBox.margin>
@@ -71,7 +71,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="nameInput" styleClass="nameInput" stylesheets="@styles.css">
+                        <TextField id="nameInput" fx:id="nameInput" styleClass="nameInput" stylesheets="@styles.css">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -91,7 +91,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="cpfInput" styleClass="cpfInput" stylesheets="@styles.css">
+                        <TextField id="cpfInput" fx:id="cpfInput" styleClass="cpfInput" stylesheets="@styles.css">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -111,7 +111,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="birthdayInput" styleClass="birthdayInput">
+                        <TextField id="birthdayInput" fx:id="birthdayInput" styleClass="birthdayInput">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -134,7 +134,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="telInput" styleClass="crefInput">
+                        <TextField id="crefInput" fx:id="crefInput" styleClass="crefInput">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -149,7 +149,7 @@
                   </VBox>
                   <VBox alignment="CENTER_RIGHT" GridPane.rowIndex="2">
                      <children>
-                        <Button id="clearButton" mnemonicParsing="false" styleClass="clearButton" stylesheets="@styles.css" text="Limpar" textFill="#883f81">
+                        <Button id="clearButton" fx:id="clearButton" mnemonicParsing="false" onAction="#clearForm" styleClass="clearButton" stylesheets="@styles.css" text="Limpar" textFill="#883f81">
                            <VBox.margin>
                               <Insets right="30.0" />
                            </VBox.margin>
@@ -161,7 +161,7 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Button id="signupButton" alignment="CENTER" mnemonicParsing="false" styleClass="signupButton" stylesheets="@styles.css" text="Cadastrar" textFill="WHITE">
+                        <Button id="signupButton" fx:id="signupButton" alignment="CENTER" mnemonicParsing="false" onAction="#onClick" styleClass="signupButton" stylesheets="@styles.css" text="Cadastrar" textFill="WHITE">
                            <VBox.margin>
                               <Insets left="30.0" />
                            </VBox.margin>
