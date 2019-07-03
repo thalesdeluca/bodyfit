@@ -1,10 +1,7 @@
 package com.bodyfit.controller.signup;
 
-import com.bodyfit.controller.bodybuilder.BodybuilderListController;
-import com.bodyfit.controller.dashboard.DashboardController;
-import com.bodyfit.controller.signup.SignupBodybuilderController;
-import com.bodyfit.dao.BodybuilderDAO;
-import com.bodyfit.model.Bodybuilder;
+import com.bodyfit.controller.instructor.InstructorListController;
+import com.bodyfit.dao.InstructorDAO;
 import com.bodyfit.model.Instructor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,27 +12,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class SignupBodybuilderController {
-
+public class SignupInstructorController {
     private Instructor user;
-    private BodybuilderDAO bodybuilderDAO;
-    public SignupBodybuilderController() {
-        bodybuilderDAO = new BodybuilderDAO();
-    }
+    private Stage stage;
+    private InstructorDAO instructorDAO;
+    public SignupInstructorController() { instructorDAO = new InstructorDAO(); }
 
     @FXML
-    private Button signupButton;
+    private VBox backButton;
 
-    @FXML
-    private Button clearButton;
 
     @FXML
     private TextField nameInput;
@@ -47,16 +37,13 @@ public class SignupBodybuilderController {
     private TextField birthdayInput;
 
     @FXML
-    private TextField telInput;
+    private TextField crefInput;
 
     @FXML
-    private TextField monthlyChargeInput;
-
-    @FXML
-    private VBox backButton;
+    private Button clearButton;
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/signup/bodybuilderSignup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/signup/instructorSignup.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("Bodyfit");
@@ -66,49 +53,45 @@ public class SignupBodybuilderController {
         stage.setResizable(true);
         stage.show();
         this.user = instructor;
+        this.stage = stage;
 
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
-            public void handle(MouseEvent mouseEvent) {
+            public void handle(MouseEvent event) {
                 try {
-                    BodybuilderListController bodybuilderListController = new BodybuilderListController();
-                    bodybuilderListController.start(stage, instructor);
-                } catch (Exception exception) {
-                    System.out.println("Erro ao trocar de tela");
+                    InstructorListController instructorListController = new InstructorListController();
+                    instructorListController.start(stage, instructor);
+                } catch (Exception ex) {
+                    System.out.println("Erro ao voltar para tela de funcionários");
                 }
             }
+
         });
     }
 
-    @FXML
-    public void onClicky(ActionEvent event) throws IOException {
+    public void onClick(ActionEvent event) throws IOException {
         clearButton.setDisable(true);
 
         String name = nameInput.getText();
         String cpf = cpfInput.getText();
-        String birthday = birthdayInput.getText();
-        String tel = telInput.getText();
-        Boolean status = true;
-        String last_paid = null;
-        Double value = 0.0;
-        try {
-            value = Double.parseDouble(monthlyChargeInput.getText());
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-        Bodybuilder bodybuilderCode = bodybuilderDAO.register(name, cpf, birthday, tel, status, last_paid, value);
+        String birth_day = birthdayInput.getText();
+        String cref = crefInput.getText();
 
-        if (bodybuilderCode != null) {
+        InstructorDAO instructorDAO = new InstructorDAO();
+        Instructor instructorCode = instructorDAO.register(name, cpf, birth_day, cref);
+        System.out.println(instructorCode);
+
+        if (instructorCode != null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro");
             alert.setHeaderText("Cadastrado!");
-            alert.setContentText("O bodybuilder foi cadastrado!\n O código do bodybuilder é: " + bodybuilderCode.getCode());
+            alert.setContentText("O instrutor foi cadastrado!\n" +
+                    "O código do instrutor é: " + instructorCode.getCode());
             alert.showAndWait();
             nameInput.setText("");
             cpfInput.setText("");
             birthdayInput.setText("");
-            telInput.setText("");
-            monthlyChargeInput.setText("");
+            crefInput.setText("");
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro");
@@ -124,8 +107,8 @@ public class SignupBodybuilderController {
         nameInput.setText("");
         cpfInput.setText("");
         birthdayInput.setText("");
-        telInput.setText("");
-        monthlyChargeInput.setText("");
+        crefInput.setText("");
     }
+
 
 }

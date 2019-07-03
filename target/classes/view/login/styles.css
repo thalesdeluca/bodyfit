@@ -11,7 +11,7 @@
 }
 
 .body {
-  -fx-background-image: url("https://images.pexels.com/photos/949129/pexels-photo-949129.jpeg?cs=srgb&dl=athlete-barbell-bodybuilder-949129.jpg&fm=jpg");
+  -fx-background-image: url(../../background.jpg);
   -fx-background-size: cover;
   -fx-background-position: center center;
 }

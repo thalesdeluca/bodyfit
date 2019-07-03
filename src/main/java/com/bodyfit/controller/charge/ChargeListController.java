@@ -1,49 +1,42 @@
-package com.bodyfit.controller.evaluation;
+package com.bodyfit.controller.charge;
 
 import com.bodyfit.controller.dashboard.DashboardController;
-import com.bodyfit.dao.EvaluationDAO;
-import com.bodyfit.model.Evaluation;
+import com.bodyfit.dao.ChargeDAO;
+import com.bodyfit.model.Charge;
 import com.bodyfit.model.Instructor;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.List;
 
-public class EvaluationController {
-
-    private EvaluationDAO evaluationDAO;
-    private ArrayList<Evaluation> evaluations = new ArrayList<>();
-    private Instructor user;
-
-    @FXML
-    private VBox evaluationBox;
+public class ChargeListController {
+    private ChargeDAO chargeDAO;
+    private List<Charge> charges;
 
     @FXML
     private VBox backButton;
 
-    public EvaluationController() {
-        evaluationDAO = new EvaluationDAO();
-        evaluations = evaluationDAO.getEvaluations();
+    @FXML
+    private VBox chargeBox;
+
+    @FXML
+    private Instructor user;
+
+    public ChargeListController() {
+        chargeDAO = new ChargeDAO();
+        charges = chargeDAO.getAllCharges();
     }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/avaliacoes/avaliacoes.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/mensalidades/mensalidades.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");
@@ -52,10 +45,11 @@ public class EvaluationController {
         stage.setMinWidth(450);
         stage.setResizable(true);
         stage.show();
+
         user = instructor;
 
-        for (Evaluation ev : evaluations) {
-            EvaluationItemController evaluationItemController = new EvaluationItemController(evaluationBox, ev);
+        for(Charge charge : charges) {
+            ChargeListItemController chargeListItem = new ChargeListItemController(charge, chargeBox);
         }
 
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -66,11 +60,11 @@ public class EvaluationController {
                     dashboardController.start(stage, user);
                 } catch(IOException ex) {
                     System.out.println("Erro ao trocar de tela");
+
                 }
 
             }
         });
-
     }
 
 }
