@@ -3,18 +3,16 @@ package com.bodyfit.controller.dashboard;
 import com.bodyfit.controller.bodybuilder.BodybuilderListController;
 import com.bodyfit.controller.instructor.InstructorListController;
 import com.bodyfit.controller.evaluation.EvaluationController;
-import com.bodyfit.dao.EvaluationDAO;
+import com.bodyfit.controller.charge.ChargeListController;
 import com.bodyfit.model.Instructor;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -77,7 +75,12 @@ public class DashboardController {
         feeBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                System.out.println(mouseEvent.getSource().getClass().getName());
+                try {
+                    ChargeListController chargeListController = new ChargeListController();
+                    chargeListController.start(stage, instructor);
+                } catch(Exception exception) {
+                    System.out.println("Erro ao trocar de tela");
+                }
             }
         });
 
