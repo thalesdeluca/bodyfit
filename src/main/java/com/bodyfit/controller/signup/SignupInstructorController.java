@@ -3,11 +3,15 @@ package com.bodyfit.controller.signup;
 import com.bodyfit.controller.instructor.InstructorListController;
 import com.bodyfit.dao.InstructorDAO;
 import com.bodyfit.model.Instructor;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
@@ -21,6 +25,21 @@ public class SignupInstructorController {
     private VBox backButton;
 
     private InstructorDAO instructorDAO;
+
+    @FXML
+    private TextField nameInput;
+
+    @FXML
+    private TextField cpfInput;
+
+    @FXML
+    private TextField birthdayInput;
+
+    @FXML
+    private TextField crefInput;
+
+    @FXML
+    private Button clearButton;
 
     public SignupInstructorController() { instructorDAO = new InstructorDAO(); }
 
@@ -50,4 +69,39 @@ public class SignupInstructorController {
 
         });
     }
+
+    public void onClick(ActionEvent event) throws IOException {
+        clearButton.setDisable(true);
+
+        String name = nameInput.getText();
+        String cpf = cpfInput.getText();
+        String birth_day = birthdayInput.getText();
+        String cref = crefInput.getText();
+
+        InstructorDAO instructorDAO = new InstructorDAO();
+        Instructor instructorCode = instructorDAO.register(name, cpf, birth_day, cref);
+        System.out.println(instructorCode);
+
+        if (instructorCode != null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registro");
+            alert.setHeaderText("Cadastrado!");
+            alert.setContentText("O instrutor foi cadastrado!\n" +
+                    "O código do instrutor é: " + instructorCode.getCode());
+            alert.showAndWait();
+            nameInput.setText("");
+            cpfInput.setText("");
+            birthdayInput.setText("");
+            crefInput.setText("");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Registro");
+            alert.setHeaderText("Erro!");
+            alert.setContentText("Campos errados ou usuário já cadastrado!");
+            alert.showAndWait();
+        }
+        clearButton.setDisable(false);
+    }
+
+
 }

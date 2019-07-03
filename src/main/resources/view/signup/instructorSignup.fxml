@@ -71,7 +71,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="nameInput" styleClass="nameInput" stylesheets="@styles.css">
+                        <TextField id="nameInput" fx:id="nameInput" styleClass="nameInput" stylesheets="@styles.css">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -91,7 +91,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="cpfInput" styleClass="cpfInput" stylesheets="@styles.css">
+                        <TextField id="cpfInput" fx:id="cpfInput" styleClass="cpfInput" stylesheets="@styles.css">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -111,7 +111,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="birthdayInput" styleClass="birthdayInput">
+                        <TextField id="birthdayInput" fx:id="birthdayInput" styleClass="birthdayInput">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -134,7 +134,7 @@
                               <Font name="Raleway Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField id="telInput" styleClass="crefInput">
+                        <TextField id="crefInput" fx:id="crefInput" styleClass="crefInput">
                            <font>
                               <Font name="Raleway" size="19.0" />
                            </font>
@@ -149,7 +149,7 @@
                   </VBox>
                   <VBox alignment="CENTER_RIGHT" GridPane.rowIndex="2">
                      <children>
-                        <Button id="clearButton" mnemonicParsing="false" styleClass="clearButton" stylesheets="@styles.css" text="Limpar" textFill="#883f81">
+                        <Button id="clearButton" fx:id="clearButton" mnemonicParsing="false" styleClass="clearButton" stylesheets="@styles.css" text="Limpar" textFill="#883f81">
                            <VBox.margin>
                               <Insets right="30.0" />
                            </VBox.margin>
@@ -161,7 +161,7 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Button id="signupButton" alignment="CENTER" mnemonicParsing="false" styleClass="signupButton" stylesheets="@styles.css" text="Cadastrar" textFill="WHITE">
+                        <Button id="signupButton" fx:id="signupButton" alignment="CENTER" mnemonicParsing="false" onAction="#onClick" styleClass="signupButton" stylesheets="@styles.css" text="Cadastrar" textFill="WHITE">
                            <VBox.margin>
                               <Insets left="30.0" />
                            </VBox.margin>
