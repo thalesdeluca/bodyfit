@@ -78,6 +78,7 @@ public class BodybuilderListController {
     @FXML
     public void addNewBodybuilderButton(ActionEvent event) throws IOException {
         try {
+            System.out.println("adhasi");
             SignupBodybuilderController signupBodybuilderController = new SignupBodybuilderController();
             signupBodybuilderController.start(stage, user);
         } catch (Exception ex) {
