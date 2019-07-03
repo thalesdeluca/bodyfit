@@ -3,6 +3,7 @@ package com.bodyfit.controller.bodybuilder;
 import com.bodyfit.controller.dashboard.DashboardController;
 import com.bodyfit.controller.signup.SignupBodybuilderController;
 import com.bodyfit.dao.BodybuilderDAO;
+import com.bodyfit.dao.CircuitDAO;
 import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Instructor;
 import javafx.event.ActionEvent;
