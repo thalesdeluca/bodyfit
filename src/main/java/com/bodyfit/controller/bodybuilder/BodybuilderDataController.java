@@ -2,7 +2,7 @@ package com.bodyfit.controller.bodybuilder;
 
 import com.bodyfit.controller.circuit.CircuitController;
 import com.bodyfit.controller.dashboard.DashboardController;
-import com.bodyfit.controller.instructor.InstructorListController;
+import com.bodyfit.controller.bodybuilder.BodybuilderListController;
 import com.bodyfit.dao.BodybuilderDAO;
 import com.bodyfit.model.Bodybuilder;
 import com.bodyfit.model.Evaluation;
@@ -99,8 +99,8 @@ public class BodybuilderDataController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     try {
-                        InstructorListController instructorListController = new InstructorListController();
-                        instructorListController.start(stage, instructor);
+                        BodybuilderListController bodybuilderListController = new BodybuilderListController();
+                        bodybuilderListController.start(stage, instructor);
                     } catch (Exception ex) {
                         System.out.println("Erro ao voltar para dashboard");
                     }
@@ -128,10 +128,9 @@ public class BodybuilderDataController {
 
                         boolean res = bodybuilderDAO.createEvaluation(id, date, hour);
 
-                        if(res == true) {
+                        if (res == true) {
                             createEvaluationModal.setVisible(false);
-                        }
-                        else {
+                        } else {
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Erro!");
                             alert.setHeaderText("Erro.");
