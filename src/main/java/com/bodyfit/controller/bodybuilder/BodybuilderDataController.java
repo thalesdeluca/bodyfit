@@ -149,7 +149,7 @@ public class BodybuilderDataController {
                 public void handle(MouseEvent event) {
                     CircuitController circuitController = new CircuitController();
                     try {
-                        circuitController.start(stage, instructor);
+                        circuitController.start(stage, instructor, bodybuilder);
                     } catch (Exception ex) {
                         System.out.println("Não foi posśível criar a tela de adicionar circuito!" + ex);
                     }
