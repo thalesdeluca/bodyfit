@@ -36,7 +36,8 @@ public class ChargeListController {
     }
 
     public void start(Stage stage, Instructor instructor) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/mensalidades/mensalidades.fxml"));
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getClassLoader().getResource("view/mensalidades/mensalidades.fxml"));
         loader.setController(this);
         Parent root = loader.load();
         stage.setTitle("BodyFit");
@@ -48,7 +49,7 @@ public class ChargeListController {
 
         user = instructor;
 
-        for(Charge charge : charges) {
+        for (Charge charge : charges) {
             ChargeListItemController chargeListItem = new ChargeListItemController(charge, chargeBox);
         }
 
@@ -58,7 +59,7 @@ public class ChargeListController {
                 try {
                     DashboardController dashboardController = new DashboardController();
                     dashboardController.start(stage, user);
-                } catch(IOException ex) {
+                } catch (IOException ex) {
                     System.out.println("Erro ao trocar de tela");
 
                 }

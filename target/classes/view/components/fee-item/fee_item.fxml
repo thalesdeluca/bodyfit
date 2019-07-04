@@ -7,18 +7,18 @@
 
 <AnchorPane fx:id="container" styleClass="item" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane id="statusPane" fx:id="statusBar" prefHeight="70.0" prefWidth="15.0" styleClass="status" stylesheets="@styles.css" />
-      <Label id="name" fx:id="name" alignment="CENTER" text="Name" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="statusBar" prefHeight="70.0" prefWidth="15.0" styleClass="status" stylesheets="@styles.css" />
+      <Label fx:id="name" alignment="CENTER" text="Name" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Raleway" size="18.0" />
          </font>
       </Label>
-      <Label id="date" fx:id="dueDate" alignment="CENTER" text="Data de Venc: 12/02/2019" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="dueDate" alignment="CENTER" text="Data de Venc: 12/02/2019" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Raleway" size="18.0" />
          </font>
       </Label>
-      <Label id="status" fx:id="status" alignment="CENTER" text="Status: Pago" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="status" alignment="CENTER" text="Status: Pago" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Raleway" size="18.0" />
          </font>

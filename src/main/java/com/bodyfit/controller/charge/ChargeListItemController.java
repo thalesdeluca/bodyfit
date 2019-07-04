@@ -41,7 +41,7 @@ public class ChargeListItemController {
     @FXML
     private AnchorPane container;
 
-    public ChargeListItemController (Charge charge, VBox parent) {
+    public ChargeListItemController(Charge charge, VBox parent) {
         try {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getClassLoader().getResource("view/components/fee-item/fee_item.fxml"));
@@ -52,9 +52,9 @@ public class ChargeListItemController {
 
             LocalDate date = LocalDate.parse(charge.getDueDate(), DateTimeFormatter.ISO_DATE);
 
-            dueDate.setText("Data: "+ date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+            dueDate.setText("Data: " + date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 
-            if(LocalDate.now().compareTo(date) < 0) {
+            if (LocalDate.now().compareTo(date) < 0) {
                 statusBar.setStyle("-fx-background-color: #DF7373");
             } else {
                 statusBar.setStyle("-fx-background-color: #76C179");
@@ -64,7 +64,7 @@ public class ChargeListItemController {
 
             parent.getChildren().add(root);
         } catch (Exception exception) {
-            System.out.println("Erro ao carregar item");
+            System.out.println("Erro ao carregar item: " + exception);
         }
 
         container.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -72,11 +72,12 @@ public class ChargeListItemController {
             public void handle(MouseEvent mouseEvent) {
                 ButtonType sim = new ButtonType("Sim", ButtonBar.ButtonData.OK_DONE);
                 ButtonType nao = new ButtonType("Não", ButtonBar.ButtonData.CANCEL_CLOSE);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Deseja marcar como paga?", ButtonType.OK, ButtonType.CANCEL);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Deseja marcar como paga?", ButtonType.OK,
+                        ButtonType.CANCEL);
                 alert.setTitle("Mensalidade");
                 Optional<ButtonType> result = alert.showAndWait();
 
-                if(result.orElse(nao) == sim) {
+                if (result.orElse(nao) == sim) {
                     ChargeDAO chargeDao = new ChargeDAO();
                     chargeDao.payCharge(charge.getId());
                 }

@@ -78,8 +78,8 @@ public class DashboardController {
                 try {
                     ChargeListController chargeListController = new ChargeListController();
                     chargeListController.start(stage, instructor);
-                } catch(Exception exception) {
-                    System.out.println("Erro ao trocar de tela");
+                } catch (Exception exception) {
+                    System.out.println("Erro ao trocar de tela: " + exception);
                 }
             }
         });
