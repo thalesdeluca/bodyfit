@@ -61,6 +61,21 @@ public class Request {
         return httpClient.execute(request);
     }
 
+    public static HttpResponse post(String url) throws Exception {
+        httpClient = HttpClients.createDefault();
+        HttpPost request = new HttpPost(url);
+
+        return httpClient.execute(request);
+    }
+
+    public static HttpResponse post(String url, String body) throws Exception {
+        httpClient = HttpClients.createDefault();
+        HttpPost request = new HttpPost(url);
+        request.setEntity(new StringEntity(body, ContentType.APPLICATION_JSON));
+
+        return httpClient.execute(request);
+    }
+
     public static HttpResponse post(URI url, JsonObject body) throws Exception {
         httpClient = HttpClients.createDefault();
 

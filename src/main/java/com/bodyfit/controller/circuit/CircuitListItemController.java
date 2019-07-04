@@ -1,27 +1,45 @@
 package com.bodyfit.controller.circuit;
 
+import com.bodyfit.model.Card;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class CircuitListItemController {
 
     @FXML
-    private VBox parent;
-        public CircuitListItemController(VBox parent) {
+    private TextField name;
 
-            this.parent = parent;
-            try {
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getClassLoader().getResource("view/components/createCircuit-item/createCircuitItem.fxml"));
-                loader.setController(this);
+    @FXML
+    private TextField series;
 
-                AnchorPane root = loader.load();
-                parent.getChildren().add(root);
-            } catch (Exception ex) {
-                System.out.println("Não foi possível criar o item: " + ex);
-            }
+    @FXML
+    private TextField repetition;
+
+    @FXML
+    private TextField weight;
+
+    public void start(VBox parent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader()
+                    .getResource("view/components/createCircuit-item/createCircuitItem.fxml"));
+            loader.setController(this);
+
+            HBox root = loader.load();
+            parent.getChildren().add(root);
+        } catch (Exception ex) {
+            System.out.println("Não foi possível criar o item: " + ex);
+        }
     }
+
+    public Card toCards() throws IOException {
+        return new Card(name.getText(), Integer.parseInt(series.getText()), Integer.parseInt(repetition.getText()),
+                Double.parseDouble(weight.getText()));
+    }
+
 }
