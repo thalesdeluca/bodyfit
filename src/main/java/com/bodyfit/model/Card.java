@@ -3,13 +3,13 @@ package com.bodyfit.model;
 public class Card {
     private String name;
     private Integer series;
-    private Integer repetitions;
+    private Integer repetition;
     private Double weight;
 
-    public Card(String name, Integer series, Integer repetitions, Double weight) {
+    public Card(String name, Integer series, Integer repetition, Double weight) {
         this.name = name;
         this.series = series;
-        this.repetitions = repetitions;
+        this.repetition = repetition;
         this.weight = weight;
     }
 
@@ -29,12 +29,12 @@ public class Card {
         this.series = series;
     }
 
-    public Integer getRepetitions() {
-        return repetitions;
+    public Integer getRepetition() {
+        return repetition;
     }
 
-    public void setRepetitions(Integer repetitions) {
-        this.repetitions = repetitions;
+    public void setRepetition(Integer repetition) {
+        this.repetition = repetition;
     }
 
     public Double getWeight() {

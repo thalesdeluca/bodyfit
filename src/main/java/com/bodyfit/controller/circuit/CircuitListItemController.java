@@ -19,17 +19,15 @@ public class CircuitListItemController {
     private TextField series;
 
     @FXML
-    private TextField repetitions;
+    private TextField repetition;
 
     @FXML
     private TextField weight;
 
-
-
     public void start(VBox parent) {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getClassLoader().getResource("view/components/createCircuit-item/createCircuitItem.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader()
+                    .getResource("view/components/createCircuit-item/createCircuitItem.fxml"));
             loader.setController(this);
 
             HBox root = loader.load();
@@ -40,8 +38,7 @@ public class CircuitListItemController {
     }
 
     public Card toCards() throws IOException {
-        return new Card(name.getText(),Integer.parseInt(series.getText()),
-                Integer.parseInt(repetitions.getText()),
+        return new Card(name.getText(), Integer.parseInt(series.getText()), Integer.parseInt(repetition.getText()),
                 Double.parseDouble(weight.getText()));
     }
 

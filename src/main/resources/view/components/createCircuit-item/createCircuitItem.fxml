@@ -57,7 +57,7 @@
                   <Font name="Raleway Bold" size="19.0" />
                </font>
             </Label>
-            <TextField id="repetitionInput" fx:id="repetitions" prefWidth="110.0" styleClass="inputForm" stylesheets="@../../createCircuit/styles.css">
+            <TextField id="repetitionInput" fx:id="repetition" prefWidth="110.0" styleClass="inputForm" stylesheets="@../../createCircuit/styles.css">
                <font>
                   <Font name="Raleway" size="19.0" />
                </font>

@@ -28,7 +28,7 @@ public class CircuitDAO {
             System.out.println(ex);
         }
 
-        if(httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+        if (httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
             return null;
         } else {
             String res = "";
@@ -45,13 +45,14 @@ public class CircuitDAO {
         }
     }
 
-    public Boolean save(ArrayList<CircuitListItemController> list, Integer instructorId, Integer bodybuilderId, Integer intensityId) {
+    public Boolean save(ArrayList<CircuitListItemController> list, Integer instructorId, Integer bodybuilderId,
+            Integer intensityId) {
         ArrayList<Card> cards = new ArrayList<>();
 
-        for(CircuitListItemController exItem : list) {
-            try{
+        for (CircuitListItemController exItem : list) {
+            try {
                 cards.add(exItem.toCards());
-            } catch(IOException io) {
+            } catch (IOException io) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Erro ao salvar Treino");
                 alert.setHeaderText("Ocorreu um erro ao tentar Salvar!");
@@ -69,8 +70,9 @@ public class CircuitDAO {
         String json = gson.toJson(circuitDTO);
 
         try {
+            System.out.println(json);
             httpResponse = Request.post("https://app-bodyfit.herokuapp.com/workout/create", json);
-            if(httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+            if (httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
                 return false;
             }
         } catch (Exception ex) {
