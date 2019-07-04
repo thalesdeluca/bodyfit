@@ -1,6 +1,7 @@
 package com.bodyfit.controller.circuit;
 
 import com.bodyfit.controller.bodybuilder.BodybuilderDataController;
+import com.bodyfit.controller.bodybuilder.BodybuilderListController;
 import com.bodyfit.dao.CircuitDAO;
 import com.bodyfit.dao.InstructorDAO;
 import com.bodyfit.model.Bodybuilder;
@@ -35,6 +36,9 @@ public class CircuitController {
 
     @FXML
     private VBox circuitList;
+
+    @FXML
+    private VBox backButton;
 
     @FXML
     private Button addNewExerciseButton;
@@ -73,6 +77,19 @@ public class CircuitController {
                 CircuitListItemController circuitListItemController = new CircuitListItemController();
                 circuitListItemController.start(circuitList);
                 exercises.add(circuitListItemController);
+            }
+        });
+
+        backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                BodybuilderListController bodybuilderListController = new BodybuilderListController();
+                try {
+                    bodybuilderListController.start(stage, instructor);
+                }catch (Exception ex) {
+                    System.out.println("não voltou para a tela de lista");
+                }
+
             }
         });
     }
